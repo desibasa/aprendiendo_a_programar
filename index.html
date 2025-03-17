@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Un array es un conjunto de valores. Cada valor es un elemento que tiene una posicion llamada indice.
+        //En Js los arrays no tienen tipo. Existen los Arrays typed que son para especificar un tamaño y longitud. Es decir
+        //es rigida y sirve para optimizar. Hay varias formas de crear arrays y son:
+
+        //CREACION DE ARRAYS DE FORMA LITERAL
+
+        let array1=[7,915,34,98,12];
+
+        let array2=[1.5,true, "Juan",{alto:190, peso: 85}];
+        //ESTE ARRAY TIENE VARIOS ELEMENTOS DENTRO DE EL Y FUNCIONA IGUAL QUE EL ANTERIOR, ES DECIR, PERMITE TENER DISTINTOS VALORES ALMACENADOS
+
+        let numero1=100;
+
+        let array3=[numero1, numero1+100, numero1+200];
+
+        //ARRAYS ANIDADOS
+
+        let array4=[[7, {color:"rojo", peso:300}],[5, {color:"verde", peso:200}]];
+        //Aqui tenemos un array anidado que contiene dos arrays que contienen a su vez un numero y un objeto, el array en posicion 0 y 
+        //lo mismo para el otro array anidado.
+
+        //ACCEDER AL INDICE DE UN ARRAY, ES DECIR A UNA POSICION EN CONCRETO.
+
+        document.write(array1[2]); //Estamos imprimiendo en pantalla la posicion 3 del primer array
+        console.log(array1[2]);
+
+        //ACCEDER A TODOS LOS ELEMENTOS DE UN ARRAY SABIENDO CUANTOS HAY
+        //Esto se haria siempre con un bucle for y quedaria asi: 
+
+        for (let i=0;i<4;i++){
+            document.write(array4[i] + "<br/>");
+            //Si en este array no supieramos cuantos elementos tiene y pusieramos mas por ejemplo i<7, los 3 
+            //elementos que sobran serian posiciones no definidas y nos daria el resultado de undefined
+        }
+
+        //ACCEDER A TODOS LOS ELEMENTOS DE UN ARRAY SI NO SABEMOS SU LONGITUD
+
+        
+        array4[2]="Probando";
+        //CAMBIAR EL VALOR DE UNA POSICION DE UN ARRAY aqui arriba
+
+        for (let i=0;i<array4.length;i++){
+            document.write(array4[i] + "<br/>");
+        }
+
+
+    </script>
+</body>
+</html>
