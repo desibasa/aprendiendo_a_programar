@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //PODEMOS METER UN ARRAY DENTRO DE OTRO ARRAY EJEMPLO:
+
+        let numeros=[7,35,67,98,101];
+
+        let numeros2=[3, 8, ...numeros, 17, 34, 89];
+
+        //ESTO DE AQUI ARRIBA HACE QUE EN ESTE ARRAY INSERTEMOS OTRO ARRAY QUE ES EL DE NUMEROS
+
+        let datos=[[7, {tipo:"fuego", debilidad:"agua"}],[8, {tipo:"agua", debilidad:"planta"}]];
+
+        document.write(datos[0][1].tipo + "<br/>"); //ESTO IMPRIME EL ELEMENTO 0 Y DENTRO DE ESE EL PRIMER ELEMENTO ES DECIR
+        //EN ESTE CASO IMPRIME FUEGO PORQUE LA SINTAXIS ES OYE DOCUMENT ESCRIBEME LOS DATOS DE LA POSICION 0 Y DENTRO DE
+        //ESTA IMPRIME LA POSICION 0, EN ESTA POSICION HAY UN OBJETO CON UN TIPO, IMPRIMEME ESE TIPO
+
+        for (let i=0;i<datos.length;i++){
+            document.write(datos[i] + "<br/>");
+        }
+
+        console.log(datos[0]);
+
+        //COPIAR UNA VARIABLE, SE HACE CON EL OPERADOR SPREAD (...) EJEMPLO:
+
+        let letras=["a","b","c","d"];
+
+        let copia_letras=[...letras];
+
+        document.write(letras + copia_letras);
+
+        //CAMBIAR ELEMENTOS DE UN ARRAY 
+
+        letras[1]="x";
+
+        document.write(letras + "<br/>");
+
+        //OPERADOR SPREAD PARA DESMENUZAR CADENAS DE TEXTO
+
+        let nombre=["Juan Diaz"];
+
+        for (let i=0;i<nombre.length;i++){
+            document.write(nombre[i] + "<br/>");
+        }
+        //EN ESTE EJERCICIO DE ARRIBA EL RESULTADO SERIA JUAN DIAZ PERO SI QUISIERAMOS QUE CADA LETRA FUESE UNA POSICION
+        //DIFERENTE LO QUE HARIAMOS SERIA CAMBIAR EL ARRAY PONIENDO LOS TRES PUNTOS AL PRINCIPIO, EL RESULTADO SERIA ESTE: 
+
+        let nombre2=[..."Juan Diaz"];
+
+        for (let i=0;i<nombre2.length;i++){
+            document.write(nombre2[i] + " posicion: " + [i] + "<br/>");
+        }
+
+    </script>
+</body>
+</html>
