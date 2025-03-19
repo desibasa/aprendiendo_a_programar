@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //COMO AÑADIR ELEMENTOS DENTRO DE UN ARRAY
+
+        let paises=new Array["españa", "Mexico", "EEUU"];
+
+        paises[3]="Alemania"; //ASI SE AGREGA UN NUEVO ELEMENTO SI SABEMOS LA POSICION 
+
+        document.write(paises);
+
+        paises.push("Francia", "Japon"); //ASI SE AGREGA UN NUEVO ELEMENTO SI NO SABEMOS LA POSICION
+        //SE PUEDEN AGREGAR TODOS LOS ELEMENTOS QUE QUERAMOS
+
+        paises.unshift("Grecia"); //ESTO AGREGA UN NUEVO ELEMENTO PERO AL PRINCIPIO DEL ARRAY
+
+
+        //COMO ELIMINAR ELEMENTOS DENTRO DE UN ARRAY
+
+        paises.pop(); //ESTO ELIMINA EL ULTIMO ELEMENTO DEL ARRAY, NO HACE FALTA ESPECIFICAR NADA DENTRO
+
+        paises.shift(); //ESTO ELIMINA EL PRIMER ELEMENTO DENTRO DE UN ARRAY
+
+        //DELETE ELIMINARIA EL ELEMENTO PERO NO LA POSICION POR ESO NO ES RECOMENDABLE USARLO
+    </script>
+</body>
+</html>
