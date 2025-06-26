@@ -1,3 +1,8 @@
+body{
+    display: flex;
+    margin-top: 250px;
+    margin-left: 300px;
+}
 div{
     width: 200px;
     height: 250px;
@@ -22,4 +27,20 @@ p{
     z-index: 1;
     margin-top: 175px;
     margin-left: 40px;
+}
+.dos{
+    z-index: 2;
+    display: flex;
+    position: relative;
+    transform: rotate(-75deg);
+}
+.tres{
+    z-index: 3;
+    transform: rotate(-140deg);
+}
+.cuatro{
+    z-index: 4;
+}
+.uno{
+    transform: rotate(-25deg);
 }
