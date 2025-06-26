@@ -1,0 +1,7 @@
+div{
+    column-count: 3;
+    column-gap: 20px;
+    column-rule: 1px dashed rgb(93, 93, 93);
+    column-width: 300px;
+    break-inside: avoid;
+}
