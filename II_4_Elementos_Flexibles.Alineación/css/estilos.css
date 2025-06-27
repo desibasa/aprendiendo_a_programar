@@ -1,0 +1,25 @@
+* {
+  
+}
+
+.container {
+    margin: 20px auto; 
+    width: 80%; 
+    display: flex; 
+    height: 300px; 
+    justify-content: center; 
+    align-items: flex-end; 
+    padding: 2em; 
+    background-color: blanchedalmond; 
+}
+
+.container > div {
+    width: 25%; 
+    height: 100px; 
+    background-color: aquamarine; 
+    border: 1px solid black; 
+}
+
+.container > div:nth-child(2) {
+    align-self: center;
+}
