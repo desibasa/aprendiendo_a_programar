@@ -1,0 +1,40 @@
+.container { 
+display: flex; 
+flex-wrap: wrap; 
+gap: 10px; 
+} 
+.cab { 
+flex: 1 100%; /* Ocupa toda la fila */ 
+background-color: lightblue; 
+padding: 10px; 
+} 
+.menu { 
+flex: 1 30%; /* Ocupa el 30% del espacio en la fila */ 
+background-color: lightgreen; 
+padding: 10px; 
+} 
+.main { 
+flex: 1 60%; /* Ocupa el 60% del espacio en la fila */ 
+background-color: lightcoral; 
+padding: 10px; 
+} 
+.pie { 
+flex: 1 100%; /* Ocupa toda la fila */ 
+background-color: lightyellow; 
+padding: 10px; 
+}
+@media (max-width: 600px) { 
+.container { 
+flex-direction: column; /* Cambiamos la dirección de los 
+elementos a columna */ 
+} 
+.menu { 
+flex: 1 100%; /* El menú ocupa toda la fila */ 
+} 
+.main { 
+flex: 1 100%; /* El contenido principal ocupa toda la fila */ 
+} 
+.pie { 
+flex: 1 100%; /* El pie de página ocupa toda la fila */ 
+} 
+} 

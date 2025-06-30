@@ -1,0 +1,40 @@
+main{
+    width: 1200px;
+    height: 600px;
+    display: grid;
+    grid-template-areas: 
+        "rojo rojo rojo rojo rojo morado"
+        "verde azul azul azul azul morado"
+        "verde azul azul azul azul morado"
+        "verde amarillo amarillo amarillo amarillo morado"
+        "naranja naranja naranja naranja naranja morado"
+        "naranja naranja naranja naranja naranja morado";
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        gap:20px;
+}
+
+.rojo{
+    grid-area: rojo;
+    background-color: red;
+}
+.verde{
+    grid-area: verde;
+    background-color: green;
+}
+.azul{
+    grid-area: azul;
+    background-color: blue;
+}
+.amarillo{
+    grid-area: amarillo;
+    background-color: yellow;
+}
+.morado{
+    grid-area: morado;
+    background-color: purple;
+}
+.naranja{
+    grid-area: naranja;
+    background-color: rgb(255, 98, 0);
+}

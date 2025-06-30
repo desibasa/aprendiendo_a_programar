@@ -1,0 +1,26 @@
+.container{
+    display: grid;
+    grid-template-areas: 
+        "cab cab cab cab cab" 
+        "menu . main main main" 
+        "menu pie pie pie pie"; 
+    grid-template-rows: 100px 100px 100px; 
+    grid-template-columns: repeat(5, 20%); 
+    gap: 10px;
+    .cab { 
+        grid-area: cab; 
+        background-color: lightblue; 
+        } 
+        .menu { 
+        grid-area: menu; 
+        background-color: lightgreen; 
+        } 
+        .main { 
+        grid-area: main; 
+        background-color: lightcoral; 
+        } 
+        .pie { 
+        grid-area: pie; 
+        background-color: lightyellow; 
+        }
+}
