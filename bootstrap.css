@@ -1,0 +1,23 @@
+body{
+    width: 1500px;
+}
+#tarjetacard{
+    width: 1500px;
+    height: 3700px;
+    transform: scale(1.7);
+ }
+
+#formi{
+    width: 650px;
+    height: 850px;
+}
+
+@media(max-width: 768px){
+    .card{
+        display: flex;
+        width: 300px;
+        height: auto;
+        transform: scale(1.0);
+    }
+        
+}

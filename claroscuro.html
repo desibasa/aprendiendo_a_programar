@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="oscuro" style="width: 100px; height: 50px;">Oscuro</button>
+    <div class="padre">
+        <p class="hijo">Lorem ipsum dolor sit amet consectetur adipisicing elit. A quidem quibusdam nostrum adipisci quia, necessitatibus, similique possimus ipsa iusto quam earum inventore voluptates, deserunt voluptas beatae quasi ullam sequi nesciunt!</p>
+        <p class="hijo">Lorem ipsum dolor sit amet consectetur adipisicing elit. A quidem quibusdam nostrum adipisci quia, necessitatibus, similique possimus ipsa iusto quam earum inventore voluptates, deserunt voluptas beatae quasi ullam sequi nesciunt!</p>
+        <p class="hijo">Lorem ipsum dolor sit amet consectetur adipisicing elit. A quidem quibusdam nostrum adipisci quia, necessitatibus, similique possimus ipsa iusto quam earum inventore voluptates, deserunt voluptas beatae quasi ullam sequi nesciunt!</p>
+        <p class="hijo">Lorem ipsum dolor sit amet consectetur adipisicing elit. A quidem quibusdam nostrum adipisci quia, necessitatibus, similique possimus ipsa iusto quam earum inventore voluptates, deserunt voluptas beatae quasi ullam sequi nesciunt!</p>
+        <p class="hijo">Lorem ipsum dolor sit amet consectetur adipisicing elit. A quidem quibusdam nostrum adipisci quia, necessitatibus, similique possimus ipsa iusto quam earum inventore voluptates, deserunt voluptas beatae quasi ullam sequi nesciunt!</p>
+    </div>
+
+    <div class="caja">
+        <button id="rojo" style="width: 150px; height: 50px;">Convierteme en rojo</button>
+        <button id="verde" style="width: 150px; height: 50px;">Convierteme en verde</button>
+        <button id="azul" style="width: 150px; height: 50px;">Convierteme en azul</button>
+    </div>
+
+    <button onclick="cambio()" id="cambio">cambiame</button>
+
+    <script>
+
+        let oscuro = document.getElementById("oscuro");
+        oscuro.addEventListener("click", function(){
+            document.body.style.backgroundColor = "black";
+            document.body.style.color = "white";
+        });
+
+        let rojo = document.getElementById("rojo");
+        rojo.addEventListener("click", function(){
+            rojo.style.backgroundColor = "red";
+        });
+
+        let verde = document.getElementById("verde");
+        verde.addEventListener("click", function(){
+            verde.style.backgroundColor = "green";
+        });
+
+        let azul = document.getElementById("azul");
+        azul.addEventListener("click", function(){
+            azul.style.backgroundColor = "blue";
+        });
+
+        let caja = 0;
+
+        function cambio(){
+            document.getElementById("cambio").textContent="Texto cambiado";
+        }
+
+    </script>
+</body>
+</html>

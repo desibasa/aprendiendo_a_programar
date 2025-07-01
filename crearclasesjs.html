@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="caja" style="width: 200px;height: 200px; background-color: rgb(162, 162, 162);">Soy una caja</div>
+
+    <button id="rojo">Rojo</button>
+    <button id="verde">Verde</button>
+    <button id="azul">Azul</button>
+
+    <button id="togle">Togle</button>
+
+<script>
+
+    let caja= document.querySelector(".caja");
+
+    let botonrojo = document.getElementById("rojo");
+    let botonverde = document.getElementById("verde");
+    let botonazul = document.getElementById("azul");
+
+    botonrojo.addEventListener("click", () => {
+        caja.classList.remove("verde","azul");
+        caja.classList.add("rojo");
+        caja.style.backgroundColor = "red";
+    });
+
+    let togle = document.getElementById("togle");
+    togle.addEventListener("click", () => {
+
+    })
+
+</script>
+
+</body>
+</html>
