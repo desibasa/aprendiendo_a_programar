@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+
+    let frutas = ["manzana", "pera", "melon"];
+    console.log(frutas[1]);
+
+    let guardarvuelta = "";
+
+    for(let recorre of frutas){
+
+        guardarvuelta+=recorre+" ";
+
+    }
+
+    console.log(guardarvuelta);
+    document.write(guardarvuelta);
+
+    let coches = ["opel", "seat", "MVW", "mercedes", "toyota", "audi"];
+
+    for(let[indice, valor] of coches.entries()){
+        document.write(indice + " " + valor + "</br>");
+    }
+
+    // El bucle for of permite recorrer arrays y con el metodo entries nos permite saber que hay en el array ue posicion ocupa
+    // el metodo entries va con las llaves que estan dentro del bucle, ahi se guardan las variables a cada vuelta de bucle
+    // en la primera variable siempre se guardara el indice o la posicion del array y en el segundo el objeto del array que
+    // este en esa posicion
+
+    // OTRA MANERA DE RECORRER ARRAYS
+
+    let helados = ["magnum", "calipo", "frigo", "fantasmicos"];
+    let recorrido = "";
+
+    helados.forEach(vuelta => {
+        recorrido+=vuelta;
+        document.write(vuelta + " ");
+    });
+    document.write("<br>");
+    //ARRAYS MULTIDIMENSIONALES 
+
+    let paises = [["España", "Madrid"], ["Francia", "Paris"], ["Reino Unido", "Londes"]];
+    document.write(paises[2][1]);
+
+    paises.push(["Alemania", "Berlin"]);
+    console.log(paises);
+
+
+    let tablas = new Array(10);
+
+    for(let i=0;i<tablas.length;i++){
+
+        tablas[i] = new Array(10);
+
+    }
+    console.log(tablas);
+
+
+</script>
+
+</body>
+</html>
