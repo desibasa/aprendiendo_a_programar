@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .caja{
+            width: 200px; 
+            height: 150px; 
+            margin: 20px; 
+            background-color: lightblue;
+            transition: 0.3s;
+            display: inline-block; 
+            text-align: center; 
+            line-height: 150px; 
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="caja" id="caja1">Pasa el ratón</div> 
+    <div class="caja" id="caja2">Pasa el ratón</div> 
+    <div class="caja" id="caja3">Pasa el ratón</div> 
+
+<script>
+
+    let caja1 = document.getElementById("caja1");
+    let caja2 = document.getElementById("caja2");
+    let caja3 = document.getElementById("caja3");
+
+//MOUSEOVER SE PROPAGA TANTO A LOS PADRES COMO A LOS HIJOS, MOUSEENTER SOLO SE APLICA AL ELEMENTO SELECCIONADO
+    caja1.addEventListener("mouseover", () => {
+        caja1.style.backgroundColor= "red";
+        caja1.textContent ="Mouseover";
+    });
+
+    caja1.addEventListener("mouseout", () => {
+        caja1.style.backgroundColor="lightblue";
+        caja1.textContent="Pasa el raton";
+    });
+
+    caja2.addEventListener("mouseenter", () => {
+        caja2.style.backgroundColor = "lightgreen";
+        caja2.textContent= "mouseenter";
+    });
+
+    caja2.addEventListener("mouseout", () => {
+        caja2.style.backgroundColor = "lightblue";
+        caja2.textContent = "Pasa el raton";
+    });
+
+</script>
+</body>
+</html>

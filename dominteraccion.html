@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style> 
+    .mensaje { 
+      color: black; 
+    } 
+    .resaltado { 
+      background-color: yellow; 
+    } 
+  </style>
+</head>
+<body>
+
+    <h1 id="titulo">Haz click para cambiar el titulo</h1>
+
+    <p class="mensaje">Parrafo con clase mensaje 1</p>
+    <p class="mensaje">Párrafo con clase mensaje 2</p> 
+
+    <a href="https://google.com" name="google">Enlace para ir a google</a></br>
+    <a href="https://wikipedia.org" name="wiki">Ir a Wikipedia</a><br>
+
+    <img src="images/img1.jpg" alt="Imagen 1" style="width: 200px; height: 200px; object-fit: cover;"> 
+    <img src="images/img2.jpg" alt="Imagen 2" style="width: 200px; height: 200px; object-fit: cover;"> 
+
+    <form name="formulario1">
+
+        <input type="text" name="nombre" placeholder="ingresa tu nombre">
+        <input type="submit" value="enviar">
+
+    </form>
+
+    <button id="mostrarhead">Mostrar el titulo del head</button>
+
+    <button id="resaltarparrafos">Resaltar parrafos</button>
+
+    <button id="contara">Contar enlaces</button>
+
+    <button id="mostrarform">Mostrar nombre del formulario</button>
+
+    <button id="mostrarimg">Mostrar cantidad de imágenes</button> 
+
+    <button id="verelementoactivo">Mostrar elemento activo</button> 
+
+    <button id="resaltarhtml">Resaltar todo el HTML</button>
+
+    <div id="resultado" style="margin-top:20px; font-weight:bold; background-color: red;"></div>
+
+<script>
+
+    let titulo = document.getElementById("titulo");
+    titulo.addEventListener("click", () => {
+        titulo.textContent = "Titulo cambiado con getElementByID";
+        titulo.style.color="blue";
+    });
+
+    document.getElementById("resaltarparrafos").addEventListener("click", () => {
+        let parrafos = document.getElementsByClassName("mensaje");
+        for (let p of parrafos) {
+            p.classList.toggle("resaltado");
+        }
+    });
+
+    // document.getElementById("mostrarimg").addEventListener("click", () =>{
+    //     let imagenes = document.getElementsByTagName("img");
+    //     document.getElementById("resultado").textContent= `Existen ${imagenes.length} imagenes`;
+    // });
+
+    document.getElementById("mostrarimg").addEventListener("click", () => { 
+        let imagenes = document.getElementsByTagName("img"); 
+        document.getElementById("resultado").textContent = `Hay  ${imagenes.length} imágenes.`; 
+    }); 
+
+    document.querySelector("a").addEventListener("mouseover", () => {
+        document.querySelector("a").style.backgroundColor = "lightgreen";
+    });
+
+    document.querySelectorAll("a").forEach(link => {
+        
+    })
+</script>
+
+</body>
+</html>

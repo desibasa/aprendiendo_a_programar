@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="parrafo1">Soy el parrafo numero 1</p>
+    <p id="parrafo2">Soy el parrafo numero 2</p>
+
+    <h1 id="titulo">Titulo</h1>
+
+    <div class="caja"></div>
+
+<script>
+
+    document.createElement("p");
+
+    document.createTextNode("texto");
+
+    let div = document.createElement("div");
+    div.classList.add("tarjeta");
+
+    let p = document.createElement("p");
+
+    p.textContent = "Nuevo parrafo";
+
+    div.appendChild(p);
+
+    document.body.appendChild(div);
+
+    let titulo = document.getElementById("titulo");
+    titulo.textContent = "Cambio de titulo";
+
+    let caja = document.getElementsByClassName("caja");
+    Array.from(caja).forEach(caja =>{
+        caja.style.border = "2px solid red";
+    });
+
+    let primerdiv = document.querySelector("div");
+    let todoslosparrafos = document.querySelectorAll("p");
+
+    todoslosparrafos.forEach( p => {
+        p.style.color="blue";
+    });
+
+</script>
+
+</body>
+</html>
