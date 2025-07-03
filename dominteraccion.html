@@ -15,72 +15,103 @@
 </head>
 <body>
 
-    <h1 id="titulo">Haz click para cambiar el titulo</h1>
-
-    <p class="mensaje">Parrafo con clase mensaje 1</p>
-    <p class="mensaje">Párrafo con clase mensaje 2</p> 
-
-    <a href="https://google.com" name="google">Enlace para ir a google</a></br>
-    <a href="https://wikipedia.org" name="wiki">Ir a Wikipedia</a><br>
-
-    <img src="images/img1.jpg" alt="Imagen 1" style="width: 200px; height: 200px; object-fit: cover;"> 
-    <img src="images/img2.jpg" alt="Imagen 2" style="width: 200px; height: 200px; object-fit: cover;"> 
-
-    <form name="formulario1">
-
-        <input type="text" name="nombre" placeholder="ingresa tu nombre">
-        <input type="submit" value="enviar">
-
-    </form>
-
-    <button id="mostrarhead">Mostrar el titulo del head</button>
-
-    <button id="resaltarparrafos">Resaltar parrafos</button>
-
-    <button id="contara">Contar enlaces</button>
-
-    <button id="mostrarform">Mostrar nombre del formulario</button>
-
-    <button id="mostrarimg">Mostrar cantidad de imágenes</button> 
-
-    <button id="verelementoactivo">Mostrar elemento activo</button> 
-
-    <button id="resaltarhtml">Resaltar todo el HTML</button>
-
-    <div id="resultado" style="margin-top:20px; font-weight:bold; background-color: red;"></div>
+    <h1 id="titulo-principal">Haz clic para cambiar el título</h1> 
+ 
+  <p class="mensaje">Párrafo con clase mensaje 1</p> 
+  <p class="mensaje">Párrafo con clase mensaje 2</p> 
+ 
+  <a href="https://google.com" name="google">Ir a Google</a><br> 
+  <a href="https://wikipedia.org" name="wiki">Ir a Wikipedia</a><br> 
+ 
+  <img src="images/img1.jpg" alt="Imagen 1" style="width: 200px; height: 200px; object-fit: cover;"> 
+  <img src="images/img2.jpg" alt="Imagen 2" style="width: 200px; height: 200px; object-fit: cover;"> 
+ 
+  <form name="formulario1"> 
+    <input type="text" name="nombre" placeholder="Tu nombre"> 
+    <input type="submit" value="Enviar"> 
+  </form> 
+ 
+<button id="mostrarHead">Mostrar título del head</button> 
+<button id="resaltarParrafos">Resaltar párrafos</button> 
+<button id="contarLinks">Contar enlaces</button> 
+<button id="mostrarFormularios">Mostrar nombre del 
+formulario</button> 
+<button id="mostrarImagenes">Mostrar cantidad de imágenes</button> 
+<button id="verElementoActivo">Mostrar elemento activo</button> 
+<button id="resaltarHTML">Resaltar todo el HTML</button> 
+<div id="resultado" style="margin-top:20px; 
+font-weight:bold;"></div>
 
 <script>
 
-    let titulo = document.getElementById("titulo");
-    titulo.addEventListener("click", () => {
-        titulo.textContent = "Titulo cambiado con getElementByID";
-        titulo.style.color="blue";
-    });
-
-    document.getElementById("resaltarparrafos").addEventListener("click", () => {
-        let parrafos = document.getElementsByClassName("mensaje");
-        for (let p of parrafos) {
-            p.classList.toggle("resaltado");
-        }
-    });
-
-    // document.getElementById("mostrarimg").addEventListener("click", () =>{
-    //     let imagenes = document.getElementsByTagName("img");
-    //     document.getElementById("resultado").textContent= `Existen ${imagenes.length} imagenes`;
-    // });
-
-    document.getElementById("mostrarimg").addEventListener("click", () => { 
-        let imagenes = document.getElementsByTagName("img"); 
-        document.getElementById("resultado").textContent = `Hay  ${imagenes.length} imágenes.`; 
-    }); 
-
-    document.querySelector("a").addEventListener("mouseover", () => {
-        document.querySelector("a").style.backgroundColor = "lightgreen";
-    });
-
-    document.querySelectorAll("a").forEach(link => {
+   // 1. getElementById 
+const titulo = document.getElementById("titulo-principal"); 
+titulo.addEventListener("click", () => { 
+titulo.textContent = "¡Título cambiado con getElementById!"; 
+titulo.style.color = "blue"; 
+}); 
+// 2. getElementsByClassName + interacción visual 
+document.getElementById("resaltarParrafos").addEventListener("click"
+ , () => { 
+const parrafos = document.getElementsByClassName("mensaje"); 
+for (let p of parrafos) { 
+p.classList.toggle("resaltado"); 
+} 
+}); 
+// 3. getElementsByTagName 
+document.getElementById("mostrarImagenes").addEventListener("click", 
+() => { 
+const imagenes = document.getElementsByTagName("img"); 
+document.getElementById("resultado").textContent = `Hay 
+${imagenes.length} imágenes.`; 
+}); 
+// 4. querySelector 
+document.querySelector("a").addEventListener("mouseover", () => { 
+document.querySelector("a").style.backgroundColor = "lightgreen"; 
+}); 
+// 5. querySelectorAll 
+document.querySelectorAll("a").forEach(link => { 
+link.addEventListener("click", (e) => { 
+e.preventDefault(); 
+document.getElementById("resultado").textContent = `Has hecho 
+clic en: ${link.textContent}`; 
+}); 
+}); 
+// 6. document.head 
+document.getElementById("mostrarHead").addEventListener("click", () => { 
+const title = document.head.querySelector("title").textContent; 
+document.getElementById("resultado").textContent = `El título de 
+la pestaña es: "${title}"`; 
+}); 
+// 7. document.links 
+document.getElementById("contarLinks").addEventListener("click", () => { 
+const enlaces = document.links; 
+document.getElementById("resultado").textContent = `Hay 
+${enlaces.length} enlaces.`; 
+}); 
+// 8. document.forms 
+document.getElementById("mostrarFormularios").addEventListener("click", () => { 
+const forms = document.forms; 
+document.getElementById("resultado").textContent = `Formulario: 
+${forms[0].name}`; 
+}); 
+// 9. document.anchors (solo los <a name="...">) 
+const anchors = document.anchors; 
+if (anchors.length > 0) { 
+anchors[0].style.textDecoration = "underline"; 
+anchors[0].style.color = "darkred"; 
+} 
+// 10. document.activeElement 
+document.getElementById("verElementoActivo").addEventListener("click", () => { 
+const activo = document.activeElement; 
+document.getElementById("resultado").textContent = `Elemento 
+activo: ${activo.tagName}`; 
+}); 
+// 11. document.documentElement 
+document.getElementById("resaltarHTML").addEventListener("click", () => { 
+document.documentElement.style.border = "4px dashed red"; 
+});
         
-    })
 </script>
 
 </body>

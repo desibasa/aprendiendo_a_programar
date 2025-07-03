@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="cajadobleclick" style="width:200px; height:150px; background-color:lightblue; text-align:center; line-height:150px; font-size:18px; border-radius:10px;"> 
+        Doble clic aquí 
+    </div>
+
+    <div id="cajamouse" style="width:200px; height:150px; background-color:lightgreen; text-align:center; line-height:150px; font-size:18px; margin-top:20px; border-radius:10px;"> 
+        Pulsa y suelta 
+    </div>
+
+    <div id="arrastrable" draggable="true" style="width:100px;height:100px;background:lightblue;text-align:center;line-height:100px;border-radius:10px;cursor:grab;"> 
+        Arrástrame 
+    </div>
+
+    <div id="zonaDestino" style="width:200px;height:200px;background:#ddd;margin-top:20px;text-align:center;line-height:200px;border:2px dashed gray;"> 
+        Suelta aquí 
+    </div>
+
+<script>
+
+    let caja = document.getElementById("cajadobleclick");
+
+    document.addEventListener("dblclick", () => {
+        caja.style.backgroundColor= "orange";
+        caja.textContent = "caja cambiada";
+    });
+ 
+
+    let cajamouse = document.getElementById("cajamouse");
+
+    document.addEventListener("mousedown", () => {
+        cajamouse.style.backgroundColor = "red";
+        cajamouse.textContent = "Caja 2 cambiada";
+    });
+    
+    document.addEventListener("mouseup", () => {
+        cajamouse.style.backgroundColor = "lightgreen"; 
+        cajamouse.textContent = "¡Soltaste!";
+    });
+
+    const item = document.getElementById("arrastrable"); 
+const zona = document.getElementById("zonaDestino"); 
+// 1. Al empezar a arrastrar 
+item.addEventListener("dragstart", (e) => { 
+console.log("dragstart"); 
+e.dataTransfer.setData("text/plain", "elemento"); 
+item.style.opacity = "0.5"; 
+}); 
+// 2. Mientras se arrastra 
+item.addEventListener("drag", () => { 
+console.log(" dragging..."); 
+}); 
+// 3. Al soltar (cuando termina) 
+item.addEventListener("dragend", () => { 
+console.log(" dragend"); 
+item.style.opacity = "1"; 
+}); 
+// 4. Cuando entra en la zona destino 
+zona.addEventListener("dragenter", (e) => { 
+e.preventDefault(); 
+console.log(" dragenter"); 
+zona.style.backgroundColor = "lightyellow"; 
+}); 
+// 5. Cuando está sobre la zona (importante: hay que prevenir comportamiento por defecto) 
+zona.addEventListener("dragover", (e) => { 
+e.preventDefault(); // NECESARIO para que funcione el drop 
+console.log(" dragover"); 
+}); 
+// 6. Cuando sale de la zona 
+zona.addEventListener("dragleave", () => { 
+console.log(" dragleave"); 
+zona.style.backgroundColor = "#ddd"; 
+}); 
+// 7. Cuando se suelta el elemento sobre la zona 
+zona.addEventListener("drop", (e) => { 
+e.preventDefault(); 
+console.log(" drop"); 
+zona.appendChild(item); 
+zona.style.backgroundColor = "#cfc"; 
+});
+
+</script>
+</body>
+</html>

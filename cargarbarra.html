@@ -4,8 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style> 
+.contenedor { 
+width: 400px; 
+height: 40px; 
+border: 2px solid #333; 
+margin: 20px auto; 
+border-radius: 10px; 
+overflow: hidden; 
+    background-color: #eee; 
+  } 
+ 
+  .barra { 
+    height: 100%; 
+    width: 0%; 
+    background-color: green; 
+    transition: width 0.1s; 
+  } 
+ 
+  #mensaje { 
+    text-align: center; 
+    font-weight: bold; 
+    margin-top: 20px; 
+  } 
+</style>
 </head>
 <body>
-    
+
+    <div class="contenedor">
+        <div class="barra" id="barra"></div>
+    </div>
+    <div id="mensaje"></div>
+
+<script>
+
+    const barra = document.getElementById("barra"); 
+  const mensaje = document.getElementById("mensaje"); 
+ 
+  let ancho = 0; 
+  let cargando = false; 
+  let intervalo = null;
+
+  document.addEventListener("keydown", (e) => { 
+  if (e.code === "Space" && !cargando) { 
+    cargando = true; 
+    mensaje.textContent = "Cargando..."; 
+ 
+    intervalo = setInterval(() => { 
+      if (ancho < 100) { 
+        ancho += 1; 
+        barra.style.width = ancho + "%"; 
+      } else { 
+        clearInterval(intervalo); 
+        mensaje.textContent = "¡Carga completa!"; 
+      } 
+    }, 30); // cada 30ms suma 1% 
+  } 
+});
+
+document.addEventListener("keyup", (e) => { 
+  if (e.code === "Space") { 
+    clearInterval(intervalo); 
+    cargando = false; 
+ 
+    if (ancho < 100) { 
+      mensaje.textContent = "Carga detenida en " + ancho + "%"; 
+} 
+} 
+}); 
+
+document.addEventListener("keydown", (e) => { 
+if (e.code === "KeyR") { 
+ancho = 0; 
+barra.style.width = "0%"; 
+mensaje.textContent = "Reiniciado"; 
+} 
+});
+
+</script>
+
 </body>
 </html>

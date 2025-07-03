@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+    body { 
+      font-family: Arial; 
+      padding: 30px; 
+    } 
+    #texto { 
+      font-size: 18px; 
+      margin: 20px 0; 
+    } 
+    button { 
+      margin: 10px; 
+      padding: 10px; 
+    } 
+  </style>
+</head>
+<body>
+     
+    <h2>Ejercicio: Funciones Básicas</h2> 
+ 
+    <p id="texto">Este es un texto que vamos a modificar con funciones.</p> 
+ 
+    <button onclick="mostrarSaludo()">Mostrar saludo</button> 
+    <button onclick="cambiarColor()">Cambiar color del texto</button> 
+    <button onclick="calcularSuma()">Calcular suma</button>
+
+<script>
+
+    function cambiarColor(){
+        document.getElementById("texto").style.color="red";
+    };
+
+    function calcularSuma(){
+        let num1 = prompt("Introduce un numero");
+        let num2 = prompt("Introduce otro numero");
+        let suma = parseInt(num1) + parseInt(num2);
+        alert(`La suma de ${num1} y ${num2} es: ${suma}`);
+    };
+
+    function mostrarSaludo() { 
+        alert("¡Hola! Bienvenido a las funciones en JavaScript."); 
+    };
+
+    function cambiarColor() { 
+        document.getElementById("texto").style.color = "blue"; 
+    };
+
+</script>
+  
+</body>
+</html>
