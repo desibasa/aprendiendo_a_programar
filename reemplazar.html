@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style></style>
+</head>
+<body>
+    
+<script>
+
+    const estilo = document.createElement("style");
+
+    estilo.textContent = `.dinamica {
+        background-color: lightgreen;
+        border: 2px solid darkgreen;
+        padding: 10px;
+        margin-top: 10px;
+        font-weight: bold;
+        color: darkgreen;
+    }`;
+
+    const parrafo = document.createElement("p");
+    parrafo.textContent = "Este párrafo tiene una clase creada dinámicamente.";
+    parrafo.classList.add("dinamica");
+    document.body.appendChild(parrafo);
+    document.head.appendChild(estilo);
+    
+
+
+
+</script>
+
+</body>
+</html>

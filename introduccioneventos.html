@@ -16,7 +16,12 @@
     button { 
       margin: 10px; 
       padding: 10px; 
-    } 
+    }
+    #cajamovil{
+        width: 200px;
+        height: 200px;
+        background-color: lightblue;
+    }
   </style>
 </head>
 <body>
@@ -28,6 +33,8 @@
     <button onclick="mostrarSaludo()">Mostrar saludo</button> 
     <button onclick="cambiarColor()">Cambiar color del texto</button> 
     <button onclick="calcularSuma()">Calcular suma</button>
+
+    <div id="cajamovil" draggable="true"></div>
 
 <script>
 
@@ -49,6 +56,12 @@
     function cambiarColor() { 
         document.getElementById("texto").style.color = "blue"; 
     };
+
+    let cajamovil = document.getElementById("cajamovil");
+
+    cajamovil.addEventListener("drag", () => {
+        console.log("moviendo caja...");
+    })
 
 </script>
   

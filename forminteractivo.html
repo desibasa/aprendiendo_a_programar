@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>formulario interactivo</h1>
+    <form>
+        <label>Introduce tu nombre</label>
+        <input type="text" id="nombre">
+
+        <label>Introduce tu email</label>
+        <input type="email" id="email">
+
+        <label>Selecciona tu ciudad</label>
+        <select id="ciudad">
+            <option value="zaragoza">zaragoza</option>
+            <option value="madrid">madrid</option>
+            <option value="barcelona">barcelona</option>
+            <option value="sevilla">sevilla</option>
+            <option value="valencia">valencia</option>
+        </select>
+
+        <label>Comentarios:</label>
+        <textarea id="comentarios"></textarea>
+
+        <input type="submit" id="enviar">
+        <input type="reset" id="reset">
+    </form>
+
+    <div id="resultado" style="margin-top:20px; font-weight:bold;"></div>
+
+<script>
+
+    let nombre = document.getElementById("nombre");
+    let correo = document.getElementById("correo");
+
+    nombre.addEventListener("focus", () => {
+        nombre.style.backgroundColor = "lightblue";
+    });
+
+    nombre.addEventListener("blur", () => { 
+        nombre.style.backgroundColor = ""; 
+    });
+
+    let resultado = document.getElementById("resultado");
+
+    nombre.addEventListener("input", () => { 
+        resultado.textContent = "Estás escribiendo: " + nombre.value; 
+    }); 
+
+    let ciudades = document.getElementById("ciudad");
+    ciudades.addEventListener("change", () => { 
+        resultado.textContent = "Has elegido el asunto: " + ciudades.value; 
+    });
+
+</script>
+</body>
+</html>

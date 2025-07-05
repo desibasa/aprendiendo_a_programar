@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="calculadora.css">
+</head>
+<body>
+
+    <div id="calculadora" class="calculadora">
+
+        <div id="resultado" class="resultado">
+            <p>...</p>
+        </div>
+
+        <div id="unocuatro" class="unocuatro">
+            <button id="uno" class="uno">1</button>
+            <button id="dos" class="dos">2</button>
+            <button id="tres" class="tres">3</button>
+            <button id="cuatro" class="cuatro">4</button>
+        </div>
+
+        <div id="cincoocho" class="cincoocho">
+            <button id="cinco" class="cinco">5</button>
+            <button id="seis" class="seis">6</button>
+            <button id="siete" class="siete">7</button>
+            <button id="ocho" class="ocho">8</button>
+        </div>
+ 
+        <div id="nuevecero" class="nuevecero">
+            <button id="nueve" class="nueve">9</button>
+            <button id="cero" class="cero">0</button>
+            <button id="intro" class="intro">intro</button>
+        </div>
+
+        <div id="operaciones" class="operaciones">
+            <button id="sumar" class="sumar">+</button>
+            <button id="restar" class="restar">-</button>
+            <button id="multiplicar" class="multiplicar">*</button>
+            <button id="dividir" class="dividir">/</button>
+        </div>
+
+
+    </div>
+<script>
+
+    let resultado =document.getElementById("resultado");
+
+    let valorguardado = "";
+
+    let valorguardadodos 
+
+
+    document.getElementById("uno").addEventListener("click", () => {
+
+        valorguardado += 1;
+        resultado.textContent = valorguardado.toString();
+
+    });
+
+    document.getElementById("dos").addEventListener("click", () => {
+
+        valorguardado += 2;
+        resultado.textContent = valorguardado.toString();
+
+    });
+
+    document.getElementById("tres").addEventListener("click", () => {
+
+        valorguardado += 3;
+        resultado.textContent = valorguardado.toString();
+
+    });
+
+    document.getElementById("cuatro").addEventListener("click", () => {
+
+        valorguardado += 4;
+        resultado.textContent = valorguardado.toString();
+
+    });
+
+    document.getElementById("cinco").addEventListener("click", () => {
+
+        valorguardado += 5;
+        resultado.textContent = valorguardado.toString();
+
+    });
+
+    document.getElementById("seis").addEventListener("click", () => {
+
+        valorguardado += 6;
+        resultado.textContent = valorguardado.toString();
+
+    });
+
+    document.getElementById("siete").addEventListener("click", () => {
+
+        valorguardado += 7;
+        resultado.textContent = valorguardado.toString();
+
+    });
+
+    document.getElementById("ocho").addEventListener("click", () => {
+
+        valorguardado += 8;
+        resultado.textContent = valorguardado.toString();
+
+    });
+
+    document.getElementById("nueve").addEventListener("click", () => {
+
+        valorguardado += 9;
+        resultado.textContent = valorguardado.toString();
+
+    });
+
+    document.getElementById("cero").addEventListener("click", () => {
+
+        valorguardado += 0;
+        resultado.textContent = valorguardado.toString();
+
+    });
+
+    document.getElementById("sumar").addEventListener("click", () =>{
+        
+        resultado.textContent = valorguardado.tostring() + "+";
+
+    });
+
+
+</script>
+</body>
+</html>

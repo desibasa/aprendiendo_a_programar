@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .border{
+            border: 5px solid black;
+        }
+    </style>
+</head>
+<body>
+    <img src="images/img1.jpg" style="width: 200px; height: 200px; object-fit: cover;">
+    <img src="images/img2.jpg" style="width: 200px; height: 200px; object-fit: cover;">
+    <img src="images/img3.jpg" style="width: 200px; height: 200px; object-fit: cover;">
+    <img src="images/img4.jpg" style="width: 200px; height: 200px; object-fit: cover;">
+
+
+<script>
+
+    let imagentres = document.querySelector("img:nth-child(3)");
+    imagentres.style.display="none";
+
+    let imagenes = document.querySelectorAll("img");
+    imagenes.forEach(imagen => {
+        imagen.classList.add("border");
+        imagen.classList.add("otraltura");
+    });
+
+    let imagencuatro = document.querySelector("img:nth-child(4)");
+    imagencuatro.classList.remove("border");
+
+</script>
+</body>
+</html>
