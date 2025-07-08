@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        .caja { 
+            width: 100px; 
+            height: 100px; 
+            background-color: steelblue; 
+            position: relative; 
+            margin: 30px auto; 
+            border-radius: 10px; 
+            transition: all 0.3s ease; 
+        } 
+        @keyframes moverDerecha { 
+            0% { left: 0; } 
+            100% { left: 300px; } 
+        } 
+        @keyframes saltar { 
+            0% { transform: translateY(0); } 
+            50% { transform: translateY(-100px); } 
+            100% { transform: translateY(0); } 
+        } 
+        @keyframes girar { 
+            from { transform: rotate(0deg); } 
+            to { transform: rotate(360deg); } 
+        } 
+            /* Clases que activan las animaciones */ 
+        .mover { 
+            animation: moverDerecha 1s forwards; 
+        } 
+        .saltar { 
+            animation: saltar 0.6s ease; 
+        } 
+        .girar { 
+            animation: girar 1s linear; 
+        }
+        @keyframes cambio{
+            from {
+                background-color: blue;
+                opacity: 1;
+            }
+            to {
+                background-color: red;
+                opacity: 0.1;
+            }
+        }
+        .cambio {
+            animation: cambio 1s ease;
+        }
+</style>
+</head>
+<body>
+
+    <div class="caja" id="miCaja"></div> 
+    <div style="text-align: center;"> 
+        <button onclick="animar('mover')">Mover Derecha</button> 
+        <button onclick="animar('saltar')">Saltar</button> 
+        <button onclick="animar('girar')">Girar</button> 
+        <button onclick="reiniciar()">Reiniciar</button> 
+        <button onclick="cambio()">Cambiar color</button>
+    </div>
+
+<script> 
+  const caja = document.getElementById("miCaja"); 
+ 
+  function animar(tipo) { 
+    caja.classList.remove("mover", "saltar", "girar"); 
+ 
+    void caja.offsetWidth; 
+ 
+    caja.classList.add(tipo); 
+  } 
+ 
+  function reiniciar() { 
+    caja.classList.remove("mover", "saltar", "girar"); 
+    caja.style.left = "0"; 
+  } 
+  function cambio() {
+    caja.classList.remove("cambio");
+    void caja.offsetWidth;
+    caja.classList.add("cambio");
+  }
+</script> 
+</body>
+</html>

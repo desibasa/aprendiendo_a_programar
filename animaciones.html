@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .caja{
+            width: 100px; 
+            height: 100px; 
+            background-color: dodgerblue; 
+            position: relative; 
+            border-radius: 10px;
+            animation: mover 4s infinite alternate;
+        }
+        @keyframes mover {
+            from { 
+                left: 0;
+                opacity: 1;
+            }
+            to {
+                left: 500px;
+                opacity: 0.2;
+            }
+        }
+        @keyframes color {
+            0% { background-color: red;}
+            20% { background-color: yellow;}
+            40% { background-color: green;}
+            60% {background-color: blue;}
+            80% { background-color: purple;}
+            100% { background-color: red;}
+        }
+        body{
+            animation: color 5s infinite;
+        }
+        .caja2 { 
+            width: 100px; 
+            height: 100px; 
+            background-color: blue; 
+            transition: transform 1s; 
+        }
+        .caja2.animar{
+            transform: translateX(300px);
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Ejercicio: Animación de Caja con Keyframes</h2> 
+    <div class="caja"></div> 
+    <div class="caja2" onclick="animar()"></div>
+
+<script>
+
+    function animar () {
+        document.querySelector(".caja2").classList.add("animar");
+    }
+
+</script>
+</body>
+</html>
