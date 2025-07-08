@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+    .caja { 
+      width: 100px; 
+      height: 100px; 
+      background-color: cornflowerblue; 
+      border-radius: 10px; 
+      position: relative; 
+      margin: 50px; 
+    } 
+  </style> 
+</head>
+<body>
+
+    <div class="caja" id="miCaja"></div> 
+    <button id="animar">Animar</button> 
+ 
+  <script> 
+
+    const caja = document.getElementById("miCaja");
+
+    caja.animate([ 
+        { transform: 'translateX(0px)' }, 
+        { transform: 'translateX(300px)' } 
+        ], { 
+        duration: 1000,       
+        iterations: 1,        
+        // 1 segundo 
+        // Solo una vez 
+        direction: 'alternate', // Vuelve al punto inicial 
+        easing: 'ease-in-out'  // Movimiento suave 
+    });
+
+    document.getElementById("animar").addEventListener("click", () => { 
+        caja.animate([ 
+        { transform: 'translateX(0px)' }, 
+        { transform: 'translateX(300px)' }, 
+        { transform: 'translateY(0px)'},
+        { transform: 'translateY(300px)'},
+        { transform: 'translateY(0px)'}
+        ], { 
+        duration: 1000, 
+        iterations: 1, 
+        direction: 'alternate', 
+        easing: 'ease-in-out' 
+        }); 
+    });
+    
+  </script>
+</body>
+</html>
