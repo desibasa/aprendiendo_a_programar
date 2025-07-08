@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .controlador { 
+            width: 300px; 
+            margin: 0 auto; 
+            position: relative; 
+        } 
+        .contenedor { 
+            width: 300px; 
+            height: 300px; 
+            margin: 2rem auto; 
+            border: 2px dashed #ccc; 
+            position: relative; 
+        } 
+        .box { 
+            width: 50px; 
+            height: 50px; 
+            background-color: royalblue; 
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            transition: transform 0.4s ease; 
+        }
+        input[type="radio"] { 
+            display: none; 
+        } 
+        label { 
+            display: inline-block; 
+            margin: 0.5rem; 
+            padding: 0.5rem 1rem; 
+            background-color: #333; 
+            color: white; 
+            border-radius: 5px; 
+            cursor: pointer; 
+        }
+        #izquierda:checked ~ .contenedor .box { 
+            transform: translate(-150px, -50%); 
+        } 
+        #derecha:checked ~ .contenedor .box { 
+            transform: translate(50px, -50%); 
+        } 
+        #arriba:checked ~ .contenedor .box { 
+            transform: translate(-50%, -150px); 
+        } 
+        #abajo:checked ~ .contenedor .box { 
+            transform: translate(-50%, 50px); 
+        } 
+        #centro:checked ~ .contenedor .box { 
+            transform: translate(-50%, -50%); 
+        }
+    </style>
+</head>
+<body>
+    <div class="controlador"> 
+
+        <input type="radio" name="pos" id="izquierda" checked> 
+        <input type="radio" name="pos" id="derecha"> 
+        <input type="radio" name="pos" id="arriba"> 
+        <input type="radio" name="pos" id="abajo"> 
+        <input type="radio" name="pos" id="centro"> 
+        
+        <div> 
+            <label for="izquierda">← Izquierda</label> 
+            <label for="derecha">→ Derecha</label> 
+            <label for="arriba">↑ Arriba</label> 
+            <label for="abajo">↓ Abajo</label> 
+            <label for="centro">Centro</label> 
+        </div> 
+ 
+        <div class="contenedor"> 
+            <div class="box"></div> 
+        </div> 
+    </div>
+
+</body>
+</html>
