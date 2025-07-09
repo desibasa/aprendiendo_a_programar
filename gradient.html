@@ -44,7 +44,23 @@
             flex-direction: column;
             position: relative;
             border: 3px solid rgb(51, 51, 224);
+            
         }
+
+        @keyframes bordeAnimado {
+            0%   { border-color: red; }
+            25%  { border-color: orange; }
+            50%  { border-color: yellow; }
+            75%  { border-color: green; }
+            100% { border-color: blue; }
+        }
+
+        .card.mejorada {
+            animation: bordeAnimado 1s infinite;
+            border-width: 3px;
+            border-style: solid;
+        }
+
         .mana{
             position: absolute;
             margin-top: 390px;
@@ -81,9 +97,36 @@
             margin-left: 700px;
             margin-top: -30vh;
         }
+        .pintar{
+            width: 500px;
+            height: 300px;
+            background-color: black;
+            color: white;
+            display: flex;
+            margin-left: 400px;
+            margin-top: -30vh;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 80px;
+            background: linear-gradient(to right, red, orange, yellow, green, blue);
+
+            /* Standard property */
+            background-clip: text;
+
+            /* WebKit-prefixed for Safari, older Chrome */
+            -webkit-background-clip: text;
+
+            /* Make the text fill transparent to reveal the background clip */
+            -webkit-text-fill-color: transparent;
+        }
+
     </style>
 </head>
 <body>
+
+    <h1>se ve el fondo?</h1>
 
     <div class="card" id="carta1">
         <img src="images/img1.jpg" class="imgcard">
@@ -95,7 +138,15 @@
 
     <button onclick="cambionochedia()" class="nochedia" id="nochedia"><img src="images/night-mode-removebg-preview.png" class="nochedia" id="nochediaimg"></button>
     
+    <div class="pintar" id="pintar">Pintame</div>
+
 <script>
+
+    let pintame = document.getElementById("pintar");
+
+    pintame.addEventListener("mouseover", () => {
+        pintame.style.backgroundImage = "linear-gradient(yellow, orange)";
+    })
 
     let carta = document.getElementById("carta1");
     let boton = document.getElementById("mejorar");
@@ -104,10 +155,10 @@
     function mejorar() {
         if (!mejorada) {
         carta.style.backgroundImage = "linear-gradient(yellow, orange)";
-        carta.style.border = "3p;"
+        carta.classList.add("mejorada");
         boton.textContent = "Remover";
         } else {
-        carta.style.backgroundImage = "linear-gradient(grey, blue)"; // fondo original
+        carta.style.backgroundImage = "linear-gradient(grey, blue)"; 
         boton.textContent = "Mejorar";
         }
 
