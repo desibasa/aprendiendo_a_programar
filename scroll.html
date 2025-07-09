@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+        } 
+            
+        .espacio { 
+            height: 100vh; /* Espacio para hacer scroll */ 
+        } 
+            
+        .caja { 
+            width: 60%; 
+            margin: auto; 
+            padding: 40px; 
+            background-color: #4b79a1; 
+            color: white; 
+            text-align: center; 
+            border-radius: 10px; 
+            font-size: 24px; 
+            opacity: 0; 
+            transform: translateY(50px); 
+            transition: all 0.8s ease-out; 
+        } 
+            
+        .caja.mostrar { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+    </style>
+</head>
+<body>
+
+
+    <h1 style="text-align:center">Scroll Animado</h1> 
+    <div class="espacio"></div> 
+    <div class="caja animada">¡Hola! He aparecido con scroll </div> 
+    <div class="espacio"></div>
+
+
+<script>
+
+    const caja = document.querySelector('.caja'); 
+
+    function mostrarSiVisible() { 
+        const rect = caja.getBoundingClientRect(); 
+        const estaVisible = rect.top < window.innerHeight - 100; 
+        if (estaVisible) { 
+        caja.classList.add('mostrar'); 
+        } 
+    } 
+    window.addEventListener('scroll', mostrarSiVisible);
+
+  </script>
+</body>
+</html>
