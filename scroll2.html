@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         
+        .espaciador { 
+            height: 100px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 20px; 
+            color: #555; 
+        } 
+            
+
+        .contenedor { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+        } 
+            
+        .caja { 
+            width: 150px; 
+            height: 150px; 
+            background-color: tomato; 
+            border-radius: 12px; 
+            text-align: center; 
+            font-size: 60px; 
+            line-height: 150px; 
+            transition: transform 1s ease, opacity 1s ease; 
+            opacity: 0; 
+            transform: scale(0.5) rotate(-45deg); 
+        } 
+            
+        .caja.mostrar { 
+            opacity: 1; 
+            transform: scale(1) rotate(0deg); 
+        }
+        .caja2{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            transition: transform 2s ease, opacity 1s ease;
+            opacity: 0;
+            transform: scale(0.1) rotate(-800deg);
+        }
+        .caja2.mostrarotro {
+            opacity: 1;
+            transform: scale(2) rotate(0deg) translateX(100px);
+            transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="espaciador">Scroll un poco para ver la animación...</div> 
+ 
+    <section class="contenedor"> 
+        <div class="caja"></div> 
+    </section> 
+ 
+    <div class="espaciador">Más contenido abajo...</div> 
+
+    <div class="caja2" id="caja2">Mi caja</div>
+ 
+  <script> 
+
+    const caja = document.querySelector('.caja'); 
+
+    function mostrarSiVisible() { 
+        const rect = caja.getBoundingClientRect(); 
+        const visible = rect.top < window.innerHeight - 100; 
+        if (visible) { 
+        caja.classList.add('mostrar'); 
+        } 
+    } 
+    window.addEventListener('scroll', mostrarSiVisible);
+
+    const caja2 = document.getElementById("caja2");
+
+    function mostrarotro() {
+        let recto = caja2.getBoundingClientRect();
+        let visibilidad = recto.top < window.innerHeight -100;
+        if(visibilidad) {
+            caja2.classList.add("mostrarotro");
+        }
+    }
+    window.addEventListener('scroll', mostrarotro);
+
+  </script> 
+</body>
+</html>
