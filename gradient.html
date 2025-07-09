@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width: 100%;
+            height: 100%;
+            animation: fondo 10s ease infinite;
+            background-repeat: no-repeat;
+            background-color: rgb(109, 154, 93);
+        }
+        html{
+            width: 100%;
+            height: 100%;
+        }
+        /* @keyframes fondo {
+            0% {background-image:linear-gradient(#2A7B9B, #57C785);}
+            15% {background-image:linear-gradient(#57C785, #D2D44A);}
+            30% {background-image:linear-gradient(#D2D44A, #D45F4A);}
+            45% {background-image:linear-gradient(#D45F4A, #D44A83);}
+            60% {background-image:linear-gradient(#D44A83, #5F4AD4);}
+            75% {background-image:linear-gradient(#5F4AD4, #4AC2D4);}
+            90% {background-image:linear-gradient(#4AC2D4, #2A7B9B);}
+            100% {background-image:linear-gradient(#2A7B9B, #57C785);}
+        } */
+        .imgcard{
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid rgb(51, 51, 224);
+        }
+        .card{
+            width: 300px;
+            height: 400px;
+            background-image: linear-gradient(grey, blue);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+            border: 3px solid rgb(51, 51, 224);
+        }
+        .mana{
+            position: absolute;
+            margin-top: 390px;
+            margin-left: 270px;
+            background-color: red;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid rgb(249, 119, 49);
+            
+        }
+        .mejorar{
+            margin-left: 50px;
+            margin-top: 20px;
+            width: 130px;
+            height: 50px;
+            border-radius: 10px;
+            background-image: linear-gradient(red,orange);
+            color: rgb(2, 41, 17);
+            font-size: 20px;
+        }
+        .mejorar:hover{
+            background-image: linear-gradient(orange, yellow);
+        }
+        .nochedia{
+            background: transparent;
+            border: none;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            margin-left: 700px;
+            margin-top: -30vh;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card" id="carta1">
+        <img src="images/img1.jpg" class="imgcard">
+        <p>5 ataque</p>
+        <p class="mana">1</p>
+    </div>
+
+    <button onclick="mejorar()" class="mejorar" id="mejorar">Mejorar</button>
+
+    <button onclick="cambionochedia()" class="nochedia" id="nochedia"><img src="images/night-mode-removebg-preview.png" class="nochedia" id="nochediaimg"></button>
+    
+<script>
+
+    let carta = document.getElementById("carta1");
+    let boton = document.getElementById("mejorar");
+    let mejorada = false;
+
+    function mejorar() {
+        if (!mejorada) {
+        carta.style.backgroundImage = "linear-gradient(yellow, orange)";
+        carta.style.border = "3p;"
+        boton.textContent = "Remover";
+        } else {
+        carta.style.backgroundImage = "linear-gradient(grey, blue)"; // fondo original
+        boton.textContent = "Mejorar";
+        }
+
+        mejorada = !mejorada; // alterna el estado
+    }
+
+    let nochedia = document.getElementById("nochedia");
+    let nochediaimg = document.getElementById("nochediaimg");
+    let noche = false;
+    let body = document.body;
+
+    function cambionochedia() {
+        if(!noche){
+            body.style.backgroundImage = "linear-gradient(grey, black)";
+            nochediaimg.src = "images/light-mode-removebg-preview.png";
+        }
+        else{
+            body.style.backgroundImage = "linear-gradient(yellow, orange)";
+            nochediaimg.src = "images/night-mode-removebg-preview.png";
+        }
+    
+        noche = !noche;
+        }
+
+</script>
+</body>
+</html>
