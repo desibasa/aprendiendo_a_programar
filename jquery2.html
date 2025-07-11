@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #444;
+        }
+
+        .contenedor-paralelo {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+        }
+
+        .texto-paralelo {
+            background: linear-gradient(135deg, #c2e9fb, #a1c4fd);
+            padding: 20px;
+            text-align: center;
+            border-radius: 12px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .centrar-botones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        button {
+            padding: 10px 14px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: #6c63ff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #4e48d0;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Ejemplo de Efectos con jQuery</h2>
+
+    <div class="contenedor-paralelo">
+        <div id="miTexto" class="texto-paralelo">Texto de
+            ejemplo</div>
+        <div id="miTexto2" class="texto-paralelo">Lorem ipsum
+            dolor</div>
+    </div>
+
+    <div class="centrar-botones">
+        <button onclick="$('#miTexto').hide(200)">Ocultar</button>
+        <button onclick="$('#miTexto').show(200)">Mostrar</button>
+        <button onclick="$('#miTexto').toggle(200)">Alternar</button>
+        <button onclick="$('#miTexto').fadeOut(200)">FadeOut</button>
+        <button onclick="$('#miTexto').fadeIn(200)">FadeIn</button>
+        <button onclick="$('#miTexto').fadeToggle(200)">FadeToggle</button>
+        <button onclick="$('#miTexto').slideUp(200)">SlideUp</button>
+        <button onclick="$('#miTexto').slideDown(200)">SlideDown</button>
+        <button onclick="$('#miTexto').slideToggle(200)">SlideToggle</button>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+            $("button").click(function () {
+                console.log("¡Se hizo clic en un botón!");
+            });
+ 
+        });
+    </script>
+</body>
+
+</html>

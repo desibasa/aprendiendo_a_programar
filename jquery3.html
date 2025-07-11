@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        .caja{
+            width: 200px;
+            height: 200px;
+            background-color: dodgerblue;
+        }
+        button{
+            width: 100px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="caja" id="caja"></div>
+    <button onclick="$('#caja').hide(200)">Ocultame</button>
+<script>
+
+    $(document).ready(function () {
+        $("button").click(function () {
+            console.log("Click en el boton");
+        });
+    });
+
+</script>
+</body>
+</html>
