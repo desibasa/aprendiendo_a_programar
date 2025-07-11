@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .caja {
+            width: 150px;
+            height: 150px;
+            background-color: mediumseagreen;
+            margin: 0 auto 30px;
+            border-radius: 10px;
+            transition: transform 0.5s ease;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Ejercicio con Skew()</h2>
+    <div class="caja" id="caja"></div>
+
+    <button onclick="inclinarX()">Skew X</button>
+    <button onclick="inclinarY()">Skew Y</button>
+    <button onclick="resetear()">Reset</button>
+
+    <script>
+        const caja = document.getElementById('caja');
+
+        function inclinarX() {
+            caja.style.transform = 'skewX(25deg)';
+        }
+
+        function inclinarY() {
+            caja.style.transform = 'skewY(25deg)';
+        }
+
+        function resetear() {
+            caja.style.transform = 'none';
+        }
+
+        function inclinarAmbos() {
+            caja.style.transform = 'skew(25deg, 25deg)';
+            caja.style.backgroundColor = 'crimson';
+        }
+    </script>
+</body>
+
+</html>

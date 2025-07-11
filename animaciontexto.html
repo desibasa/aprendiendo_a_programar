@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #444;
+        }
+
+        .contenedor-paralelo {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+        }
+
+        .texto-paralelo {
+            width: 240px;
+            min-height: 100px;
+            background: linear-gradient(135deg, #c2e9fb, #a1c4fd);
+            padding: 20px;
+            text-align: center;
+            border-radius: 12px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+            transition: all 0.5s ease;
+        }
+
+        .centrar-botones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        button {
+            padding: 10px 14px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: #6c63ff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #4e48d0;
+        }
+
+        /* Efectos personalizados */
+        .oculto {
+            display: none;
+        }
+
+        .fade {
+            opacity: 0;
+        }
+
+        .slide {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Efectos con JavaScript (Sin jQuery)</h2>
+
+    <div class="contenedor-paralelo">
+        <div id="miTexto" class="texto-paralelo">Texto de ejemplo</div>
+        <div id="miTexto2" class="texto-paralelo">Lorem ipsum dolor</div>
+    </div>
+
+    <div class="centrar-botones">
+        <button onclick="ocultar()">Ocultar</button>
+        <button onclick="mostrar()">Mostrar</button>
+        <button onclick="alternar()">Alternar</button>
+        <button onclick="fadeOut()">FadeOut</button>
+        <button onclick="fadeIn()">FadeIn</button>
+        <button onclick="fadeToggle()">FadeToggle</button>
+        <button onclick="slideUp()">SlideUp</button>
+        <button onclick="slideDown()">SlideDown</button>
+        <button onclick="slideToggle()">SlideToggle</button>
+    </div>
+
+    <script>
+        const miTexto = document.getElementById("miTexto");
+
+        function ocultar() {
+            miTexto.style.display = "none";
+        }
+
+        function mostrar() {
+            miTexto.style.display = "block";
+        }
+
+        function alternar() {
+            miTexto.style.display = (miTexto.style.display === "none") ?
+                "block" : "none";
+        }
+
+        function fadeOut() {
+            miTexto.style.transition = "opacity 0.6s ease";
+            miTexto.style.opacity = 0;
+        }
+
+        function fadeIn() {
+            miTexto.style.transition = "opacity 0.6s ease";
+            miTexto.style.opacity = 1;
+        }
+
+        let visible = true;
+        function fadeToggle() {
+            visible ? fadeOut() : fadeIn();
+            visible = !visible;
+        }
+
+        function slideUp() {
+            miTexto.style.transition = "max-height 0.6s ease, padding 0.6s ease"; 
+            miTexto.style.maxHeight = "0px";
+            miTexto.style.padding = "0";
+        }
+
+        function slideDown() {
+            miTexto.style.transition = "max-height 0.6s ease, padding 0.6s ease"; 
+            miTexto.style.maxHeight = "300px";
+            miTexto.style.padding = "20px";
+        }
+        let deslizado = false;
+        function slideToggle() {
+            deslizado ? slideDown() : slideUp();
+            deslizado = !deslizado;
+        } 
+    </script>
+</body>
+
+</html>
