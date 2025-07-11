@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        .contenedor-paralelo {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px auto;
+        }
+
+        .texto-paralelo {
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+            padding: 10px;
+            text-align: center;
+            line-height: 80px;
+            font-weight: bold;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .centrar-botones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        button {
+            padding: 10px 14px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: #6c63ff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #4e48d0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="caja" id="caja" style="width: 200px; height: 200px; background-color: lightblue;"></div>
+
+    <h2 style="text-align: center">Efectos jQuery Mejorados</h2>
+
+    <!--Contenedor de texto -->
+    <div class="contenedor-paralelo">
+        <div id="miTexto" class="texto-paralelo">Texto de
+            ejemplo</div>
+        <div id="miTexto2" class="texto-paralelo">Lorem ipsum
+            dolor</div>
+    </div>
+
+    <!--Botones para activar efectos -->
+    <div class="centrar-botones">
+        <button onclick="$('#miTexto').fadeOut(1000)">FadeOut</button>
+        <button onclick="$('#miTexto').fadeIn(1000)">FadeIn</button>
+        <button onclick="$('#miTexto').slideUp(1000)">SlideUp</button>
+        <button onclick="$('#miTexto').slideDown(1000)">SlideDown</button>
+        <button onclick="animarCaja()">Animate Opacidad + Altura</button>
+        <button onclick="restaurarCaja()">Restaurar</button>
+    </div>
+
+    <script>
+        const elemento = $("#miElemento");  //Por id    
+        const elementos = $(".miClase");   // por clase
+
+        $("#boton").click(function () {
+            alert("¡Haz hecho clic!");
+        });
+
+        $("#caja").hide();
+        $("#caja").show();
+        $("#caja").toggle();
+        $("#caja").fadeIn();
+        $("#caja").fadeOut();
+        $("#caja").fadeToggle();
+        $("#caja").slideUp();
+        $("#caja").slideDown();
+        $("#caja").slideToggle();
+        // Oculta el elemento instantáneamente 
+        // Muestra el elemento 
+        // Alterna entre ocultar y mostrar 
+        // Efecto de aparición gradual 
+        // Desaparece gradualmente 
+        // Alterna entre fadeIn y fadeOut 
+        // Se pliega hacia arriba 
+        // Se despliega 
+        // Alterna entre slideUp y slideDown
+
+        $("#caja").animate({
+            opacity: 0.5,
+            width: "300px"
+        }, 1000); // 1 segundo 
+        $("#caja")
+            .fadeOut(400)
+            .fadeIn(400)
+            .slideUp(400)
+            .slideDown(400);
+        $.get("datos.json", function (respuesta) {
+            console.log(respuesta);
+        });
+        $("#titulo").text("Nuevo texto");
+        $("#caja").css("color", "red");
+        // Cambiar texto 
+        // Cambiar estilo 
+        $("#lista").append("<li>Nuevo item</li>"); // Añadir elementos 
+
+        function animarCaja() {
+            // Animación personalizada: baja opacidad y reduce altura a 0 
+            $("#miTexto").animate(
+                {
+                    opacity: 0.2,
+                    height: "0px"
+                },
+                1000 // duración 1 segundo 
+            );
+        }
+
+        function restaurarCaja() {
+            // Vuelve a mostrar la caja con opacidad y altura normales 
+            $("#miTexto").animate(
+                {
+                    opacity: 1,
+                    height: "100px"
+                },
+                1000
+            );
+        }
+
+    </script>
+
+</body>
+
+</html>
