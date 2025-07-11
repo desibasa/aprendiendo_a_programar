@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta charset="UTF-8" />
+    <title>Transformación con matrix()</title>
+    <style>
+        .caja {
+            width: 100px;
+            height: 100px;
+            background-color: cornflowerblue;
+            margin: 100px auto;
+            transition: transform 0.5s ease;
+        }
+
+        .caja:hover {
+            /* 
+        Transformación explicada: 
+         a = 1.2  → escala horizontal (más ancha) 
+         b = 0.3  → inclinación vertical (skew Y) 
+         c = 0.3  → inclinación horizontal (skew X) 
+         d = 1.2  → escala vertical (más alta) 
+         e = 100  → traslación en X (100px a la derecha) 
+         f = 50   → traslación en Y (50px hacia abajo) 
+      */
+            transform: matrix(1.2, 0.3, 0.3, 1.2, 100, 50);
+        }
+
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .caja2 {
+            width: 100px;
+            height: 100px;
+            background-color: coral;
+            margin: 0 auto;
+            border-radius: 10px;
+            /* animation: deformar 3s infinite alternate; */
+             transition: transform 0.5s ease;
+        }
+
+        @keyframes deformar {
+            0% {
+                transform: matrix(1, 0, 0, 1, 0, 0);
+                /* identidad: sin cambios */
+                background-color: coral;
+            }
+
+            100% {
+                transform: matrix(1.2, 0.3, 0.2, 1.1, 100, 50);
+                /* escala X: 1.2 
+                skew Y: 0.3 
+                skew X: 0.2 
+                escala Y: 1.1 
+                translateX: 100px 
+                translateY: 50px */
+                background-color: mediumseagreen;
+            }
+        }
+        .caja2:hover{
+            transform: matrix(2,1,1,2,200,100);
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Pasa el ratón sobre la caja</h2>
+    <div class="caja"></div>
+    <h2>Animación con transform: matrix()</h2>
+    <div class="caja2"></div>
+</body>
+
+</html>

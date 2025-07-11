@@ -41,92 +41,157 @@
             <button id="dividir" class="dividir">/</button>
         </div>
 
-
     </div>
+
+    <button class="reset" onclick="reset()">reset</button>
+
+
 <script>
 
     let resultado =document.getElementById("resultado");
 
     let valorguardado = "";
 
-    let valorguardadodos 
+    let valorguardadodos = "";
+
+    let operacion = "";
+
+    let esperandosegundo = false;
 
 
-    document.getElementById("uno").addEventListener("click", () => {
+    function escribir(digito){
+        if(!esperandosegundo){
+            valorguardado += digito;
+            resultado.textContent = valorguardado;
+        }
+        else{
+            valorguardadodos += digito;
+            resultado.textContent = valorguardadodos;
+        }
+    }
 
-        valorguardado += 1;
-        resultado.textContent = valorguardado.toString();
 
-    });
+    document.getElementById("uno").addEventListener("click", () => 
+
+        escribir("1")
+
+    );
 
     document.getElementById("dos").addEventListener("click", () => {
 
-        valorguardado += 2;
-        resultado.textContent = valorguardado.toString();
+        escribir("2");
 
     });
 
     document.getElementById("tres").addEventListener("click", () => {
 
-        valorguardado += 3;
-        resultado.textContent = valorguardado.toString();
+        escribir("3");
 
     });
 
     document.getElementById("cuatro").addEventListener("click", () => {
 
-        valorguardado += 4;
-        resultado.textContent = valorguardado.toString();
+        escribir("4");
 
     });
 
     document.getElementById("cinco").addEventListener("click", () => {
 
-        valorguardado += 5;
-        resultado.textContent = valorguardado.toString();
+        escribir("5");
 
     });
 
     document.getElementById("seis").addEventListener("click", () => {
 
-        valorguardado += 6;
-        resultado.textContent = valorguardado.toString();
+        escribir("6");
 
     });
 
     document.getElementById("siete").addEventListener("click", () => {
 
-        valorguardado += 7;
-        resultado.textContent = valorguardado.toString();
+        escribir("7");
 
     });
 
     document.getElementById("ocho").addEventListener("click", () => {
 
-        valorguardado += 8;
-        resultado.textContent = valorguardado.toString();
+        escribir("8");
 
     });
 
     document.getElementById("nueve").addEventListener("click", () => {
 
-        valorguardado += 9;
-        resultado.textContent = valorguardado.toString();
+        escribir("9");
 
     });
 
     document.getElementById("cero").addEventListener("click", () => {
 
-        valorguardado += 0;
-        resultado.textContent = valorguardado.toString();
+        escribir("0");
 
     });
 
     document.getElementById("sumar").addEventListener("click", () =>{
-        
-        resultado.textContent = valorguardado.tostring() + "+";
+
+        operacion = "+";
+        esperandosegundo = true;
 
     });
+
+    document.getElementById("restar").addEventListener("click", () => {
+
+        operacion = "-";
+        esperandosegundo = true;
+
+    });
+
+    document.getElementById("multiplicar").addEventListener("click", () => {
+
+        operacion = "*";
+        esperandosegundo = true;
+
+    });
+
+    document.getElementById("dividir").addEventListener("click", () => {
+
+        operacion = "/";
+        esperandosegundo = true;
+
+    });
+
+    document.getElementById("intro").addEventListener("click", () => {
+
+        let num1 = parseFloat(valorguardado);
+        let num2 = parseFloat(valorguardadodos);
+        let total = 0;
+
+        if(operacion === "+"){
+            total = num1 + num2;
+            resultado.textContent = total;
+        }
+        else if(operacion === "-"){
+            total = num1 - num2;
+            resultado.textContent = total;
+        }
+        else if ( operacion === "*"){
+            total = num1 * num2;
+        }
+        else {
+            total = num1 / num2;
+            resultado.textContent = total;
+        }
+
+    });
+
+    function reset(){
+
+        valorguardado = "";
+        valorguardadodos = "";
+        operacion = "";
+        esperandosegundo = false;
+        resultado.textContent = "...";
+
+    }
 
 
 </script>

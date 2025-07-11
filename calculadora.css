@@ -111,3 +111,13 @@
     border-radius: 7px;
     box-shadow: 3px 3px rgba(0, 0, 0, 0.648);
 }
+.reset{
+    display: flex;
+    width: 100px;
+    height: 50px;
+    margin-left: 250px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: -80vh;
+}
