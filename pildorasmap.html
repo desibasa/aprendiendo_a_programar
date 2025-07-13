@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    let numeros = [5, 10, 15, 20, 25];
+
+    function incremento(valor) {
+        return valor*valor
+    };
+
+    document.write(numeros.map(incremento));
+
+    document.write("</br>");
+
+    function raiz(valores){
+        return Math.sqrt(valores);
+    };
+
+    document.write(numeros.map(raiz));
+
+    document.write("</br>");
+
+    let otrosnumeros = [1,2,3,4,5,6,7,8,9];
+
+    document.write(otrosnumeros.map(valor => Math.sqrt(valor)));
+
+    document.write("</br>");
+
+    let alturas = [190, 170, 187, 161, 185, 191];
+
+    document.write(alturas.map(alturapersonas => {
+        return alturapersonas - 110;
+    }));
+
+    //Esto de arriba es lo mismo que lo de aqui abajo
+    document.write("</br>");
+
+    document.write(alturas.map(alturapersonas => alturapersonas-110));
+
+    document.write("</br>");
+
+    let edades = [34,15,23,67,54,18,45,13,9,44,32,70];
+
+    function edadlaboral (edad) {
+
+        if(edad>=18 && edad<=67){
+            return edad;
+        };
+    };
+
+    document.write(edades.filter(edadlaboral));
+
+</script>  
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    let edades = [34,15,23,67,54,18,45,13,9,44,32,70];
+    let nombres = ["maria", "juan", "marcos", "paula", "pedro", "juan"];
+
+    document.write(nombres.findIndex(encontrar => encontrar == "pedro"));
+    document.write("</br>");
+    document.write(nombres.findIndex(encontrar => encontrar == "juan"));
+    //Aqui arriba solo imprimira el primero, el segundo no, porque funciona asi
+    document.write("</br>");
+
+    document.write(edades.findIndex(encontrar => encontrar <30));
+    document.write("</br>");
+
+    //El de arriba devuelve el indice del elemento buscado y el de abajo devuelve el elemento en si.
+    //Si buscamos algo que no existe pondra undefined
+
+    document.write(edades.find(encontrar => encontrar%2==0));
+    document.write("</br>");
+
+    //Si quieramos buscar una palabra que empieza por una letra hariamos lo siguiente: 
+
+    document.write(nombres.find(encontrar => encontrar.charAt(0)=="j"));
+    document.write("</br>");
+    //Si aqui arriba buscasemos "J" en vez de "j" nos saldria undefined porque js es casesensitive
+
+    document.write(nombres.find(encontrar => encontrar.charAt(encontrar.length-1)=="a"));
+    document.write("</br>");
+    //Esto sirve para encontrar elementos que tengan en ultimo puesto algo que queremos buscar, en este caso buscamos nombres
+    //que terminen por la letra a y devuelve el primer elemento, en este caso maria
+
+    document.write(edades.every(menores => menores<100));
+    document.write("</br>");
+    //Esto devuelve true o false si se cumplen todos los requesitos, en este caso si porque en el array no hay numeros mayores que 100
+
+    document.write(edades.some(menores => menores<100));
+    document.write("</br>");
+    //Esto busca algun elemento que cumpla la condicion, conque uno solo lo cumpla devolvera true
+</script>
+</body>
+</html>
