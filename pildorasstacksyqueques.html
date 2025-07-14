@@ -41,7 +41,7 @@
 
     //Slice permite seleccionar (es este caso con el document.write) elementos de un array que se encuentren en las posiciones
     //que estan entre parentesis en este caso la posicion 2 y la 4. Permite insertar numeros en negativo y cuando eso pase
-    //volvera a recorrer el array hasta encontrar esa posicion
+    //volvera a recorrer el array hasta encontrar esa posicion. Slice no modifica el array pero splice si
 
     document.write(edades.slice(2,4));
 
@@ -50,6 +50,32 @@
     document.write(edades.slice(5)); //Esto imprimira desde la posicion 5 hata el final del array
 
     document.write("</br>");
+
+    document.write(edades);
+
+    document.write("</br>");
+
+    document.write(edades.splice(4,2));
+
+    document.write("</br>");
+
+    //splice permite añadir elementos en la posicion que queramos. Ejemplo: 
+
+    document.write(nombres.splice(2,0,"Mahuntu", "Farenheith")); //Esto los agrega en la posicion 4 en adelante
+
+    document.write("</br>");
+
+    //El metodo fill permite añadir elementos dentro de un array
+
+    document.write(nombres);
+
+    let nuevaarray= new Array(5);
+
+    nuevaarray.fill("Manzana"); //Esto rellenara las 5 posiciones con manzana
+
+    document.write("</br>");
+
+    document.write(nuevaarray);
 
 
 

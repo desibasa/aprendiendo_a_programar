@@ -79,8 +79,14 @@
         <span id="errorpeso" class="error" style="color: red;"></span>
         <!-- step permite introducir numeros decimales -->
         </br></br>
+        <label>Introduce el precio de tu producto</label>
+        </br>
+        <input type="number" step="0.1" id="precio">
+         <span id="errorprecio" class="error" style="color: red;"></span>
+        </br></br>
         <input type="submit" placeholder="validar" value="Validar">
         <span id="errorvalidar" class="error" style="color: red;"></span>
+
     </form>
     <script>
 
@@ -100,6 +106,7 @@
             let estadocivil = document.getElementById("estadocivil");
             let textarea = document.getElementById("textarea");
             let peso = document.getElementById("peso");
+            let precio = document.getElementById("precio");
             let valido = true;
 
             let errornombre = document.getElementById("errornombre");
@@ -135,6 +142,20 @@
             } else {
                 contraseña.classList.remove("input-error");
                 errorcontraseña.textContent = "";
+            }
+
+            let errorprecio=document.getElementById("errorprecio");
+
+            let valor = parseFloat(precio.value);
+
+            if(valor < 1 || valor > 9999 || isNaN(valor)){
+                precio.classList.add("input-error");
+                errorprecio.textContent = "Precio no aceptado";
+                valido = false;
+            }
+            else{
+                precio.classList.remove("input-error");
+                errorprecio.textContent = "";
             }
 
         });
