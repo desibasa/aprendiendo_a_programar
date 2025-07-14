@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .input-error {
+            color: red;
+            border: 2px solid red;
+        }
+
+        span.input-error {
+            color: red;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="formulario" method="post">
+        <label for="nombre">Introduce tu nombre</label>
+        </br>
+        <input type="text" id="nombre">
+        <span id="errornombre" class="input-error"></span>
+        </br></br>
+        <label for="edad">Introduce tu edad</label>
+        </br>
+        <input type="number" id="edad">
+        <span id="erroredad" class="input-error"></span>
+        </br></br>
+        <label for="contraseña">Introduce tu contraseña</label>
+        </br>
+        <input type="password" id="contraseña">
+        <span id="errorcontraseña" class="input-error"></span>
+        </br></br>
+        <input type="submit" id="validar">
+    </form>
+
+    <script>
+
+        let formulario = document.getElementById("formulario");
+
+        formulario.addEventListener("submit", e => {
+            e.preventDefault();
+
+            let nombre = document.getElementById("nombre");
+            let edad = document.getElementById("edad");
+            let contraseña = document.getElementById("contraseña");
+            let validar = true;
+
+            let errornombre = document.getElementById("errornombre");
+
+            if (nombre.value.length < 3 || nombre.value.length > 13 || nombre.value.includes(" ")) {
+                validar = false;
+                nombre.classList.add("input-error");
+                errornombre.textContent = "Error, debes introducir un nombre que contenga entre 4 y 12 caracteres";
+            }
+            else {
+                validar = true;
+                nombre.classList.remove("input-error");
+            }
+
+            let erroredad = document.getElementById("erroredad");
+
+            let valoredad = parseInt(edad.value);
+
+            if (valoredad < 18 || valoredad > 67 || isNaN(valoredad)) {
+                validar = false;
+                edad.classList.add("input-error");
+                erroredad.textContent = "Por favor selecciona una edad entre 18 y 67";
+            }
+            else {
+                edad.classList.remove("input-error");
+                validar = true;
+            }
+
+            let errorcontraseña = document.getElementById("errorcontraseña");
+            let valorContraseña = contraseña.value;
+
+            if (valorContraseña.includes(" ") || valorContraseña.length < 6 || valorContraseña === nombre.value || !/\d/.test(valorContraseña)) {
+                // !/\d/.test(valorContraseña) verifica que haya al menos un número
+                validar = false;
+                contraseña.classList.add("input-error");
+                errorcontraseña.textContent = "La contraseña debe tener al menos 6 caracteres, sin espacios, contener al menos un número y no ser igual al nombre.";
+            } else {
+                contraseña.classList.remove("input-error");
+                validar = true;
+            }
+
+        });
+
+    </script>
+</body>
+
+</html>
