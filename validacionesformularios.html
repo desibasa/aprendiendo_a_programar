@@ -18,39 +18,39 @@
 </head>
 
 <body>
-    <form id="formulario" novalidate>
-        <label>Introduce tu nombre</label>
+    <form id="formulario" novalidate method="post">
+        <label for="nombre">Introduce tu nombre</label>
         </br>
         <input type="text" id="nombre" minlength="3" maxlength="18" required placeholder="Juan..."
-            title="Debe contener al menos una mayuscula">
+            title="Debe contener al menos una mayuscula" name="nombre">
         <span id="errornombre" class="error" style="color: red;"></span>
         </br></br>
-        <label>Introduce tu email</label>
+        <label for="email">Introduce tu email</label>
         </br>
-        <input type="email" id="email" required placeholder="aaa@aaa.com">
+        <input type="email" id="email" required placeholder="aaa@aaa.com" name="email">
         <span id="erroremail" class="error" style="color: red;"></span>
         </br></br>
-        <label>Introduce tu edad</label>
+        <label for="edad">Introduce tu edad</label>
         </br>
-        <input type="number" id="edad" minlength="18" maxlength="67" placeholder="min 18 max 67">
+        <input type="number" id="edad" minlength="18" maxlength="67" placeholder="min 18 max 67" name="edad">
         <span id="erroredad" class="error" style="color: red;"></span>
         </br></br>
-        <label>Introduce una contraseña</label>
+        <label for="contraseña">Introduce una contraseña</label>
         </br>
         <input type="password" id="contraseña" required maxlength="18" placeholder="***"
-            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" name="contraseña">
         <span id="errorcontraseña" class="error" style="color: red;"></span>
         </br></br>
-        <label>Introduce tu fecha de nacimiento</label>
+        <label for="nacimiento">Introduce tu fecha de nacimiento</label>
         </br>
-        <input type="date" id="nacimiento" required>
+        <input type="date" id="nacimiento" required name="nacimiento">
         <span id="errornacimiento" class="error" style="color: red;"></span>
         </br></br>
-        <label>Introduce tu red social (opcional)</label>
+        <label for="redsocial">Introduce tu red social (opcional)</label>
         </br>
         <input type="url" id="redsocial" placeholder="@instagram">
         </br></br>
-        <label>Introduce tu numero de telefono</label>
+        <label for="telefono">Introduce tu numero de telefono</label>
         </br>
         <input type="tel" id="telefono" required minlength="9" placeholder="+34...">
         <span id="errortelefono" class="error" style="color: red;"></span>
@@ -61,7 +61,7 @@
         <input type="checkbox" id="trabajando" name="Trabajando">Trabajando</input>
         <span id="errorlaboral" class="error" style="color: red;"></span>
         </br></br>
-        <label>Estado civil</label>
+        <label for="estadocivil">Estado civil</label>
         <select required id="estadocivil">
             <option>Solter@</option>
             <option>Divorciad@</option>
@@ -69,17 +69,17 @@
         </select>
         <span id="errorestadocivil" class="error" style="color: red;"></span>
         </br></br>
-        <label>Por favor dejanos tu opinion</label>
+        <label for="textarea">Por favor dejanos tu opinion</label>
         </br>
         <textarea minlength="6" id="textarea">Escribe aqui...</textarea>
         </br></br>
-        <label>Introduce tu peso</label>
+        <label for="peso">Introduce tu peso</label>
         </br>
         <input type="number" id="peso" step="0.1" placeholder="70.5">
         <span id="errorpeso" class="error" style="color: red;"></span>
         <!-- step permite introducir numeros decimales -->
         </br></br>
-        <label>Introduce el precio de tu producto</label>
+        <label for="precio">Introduce el precio de tu producto</label>
         </br>
         <input type="number" step="0.1" id="precio">
          <span id="errorprecio" class="error" style="color: red;"></span>
@@ -157,6 +157,9 @@
                 precio.classList.remove("input-error");
                 errorprecio.textContent = "";
             }
+
+            let text_area = document.getElementById("textarea");
+            let texto = text_area.value.trim();
 
         });
 
