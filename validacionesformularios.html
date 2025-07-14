@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        /* .error {
+            color: rgb(89, 0, 0);
+            background-color: red;
+        } */
+        .input-error {
+            color: red;
+            border: 1px solid red;
+        }
+    </style>
 </head>
+
 <body>
-    <form id="formulario">
+    <form id="formulario" novalidate>
         <label>Introduce tu nombre</label>
         </br>
-        <input type="text" id="nombre" minlength="3" maxlength="18" required placeholder="Juan..." title="Debe contener al menos una mayuscula">
+        <input type="text" id="nombre" minlength="3" maxlength="18" required placeholder="Juan..."
+            title="Debe contener al menos una mayuscula">
         <span id="errornombre" class="error" style="color: red;"></span>
         </br></br>
         <label>Introduce tu email</label>
@@ -24,7 +37,8 @@
         </br></br>
         <label>Introduce una contraseña</label>
         </br>
-        <input type="password" id="contraseña" required maxlength="18" placeholder="***" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+        <input type="password" id="contraseña" required maxlength="18" placeholder="***"
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
         <span id="errorcontraseña" class="error" style="color: red;"></span>
         </br></br>
         <label>Introduce tu fecha de nacimiento</label>
@@ -64,40 +78,69 @@
         <input type="number" id="peso" step="0.1" placeholder="70.5">
         <span id="errorpeso" class="error" style="color: red;"></span>
         <!-- step permite introducir numeros decimales -->
-         </br></br>
-        <input type="submit" placeholder="validar">
+        </br></br>
+        <input type="submit" placeholder="validar" value="Validar">
         <span id="errorvalidar" class="error" style="color: red;"></span>
     </form>
-<script>
+    <script>
 
-    let formulario = document.getElementById("formulario");
-    let nombre = document.getElementById("nombre");
-    let email = document.getElementById("email");
-    let edad = document.getElementById("edad");
-    let contraseña = document.getElementById("contraseña");
-    let nacimiento = document.getElementById("nacimiento");
-    let telefono = document.getElementById("telefono");
-    let desempleo = document.getElementById("desempleo");
-    let trabajando = document.getElementById("trabajando");
-    let estadocivil = document.getElementById("estadocivil");
-    let textarea = document.getElementById("textarea");
-    let peso = document.getElementById("peso");
+        let formulario = document.getElementById("formulario");
 
-    formulario.addEventListener("submit", validaciones => {
-        validaciones.preventDefault();
-    });
+        formulario.addEventListener("submit", validaciones => {
+            validaciones.preventDefault();
 
-    let valido = true;
+            let nombre = document.getElementById("nombre");
+            let email = document.getElementById("email");
+            let edad = document.getElementById("edad");
+            let contraseña = document.getElementById("contraseña");
+            let nacimiento = document.getElementById("nacimiento");
+            let telefono = document.getElementById("telefono");
+            let desempleo = document.getElementById("desempleo");
+            let trabajando = document.getElementById("trabajando");
+            let estadocivil = document.getElementById("estadocivil");
+            let textarea = document.getElementById("textarea");
+            let peso = document.getElementById("peso");
+            let valido = true;
 
-    if(campoincorrecto){
-        valido=false;
-    };
+            let errornombre = document.getElementById("errornombre");
 
-    if(!valido){
-        validaciones.preventDefault();
-    };
+            if (nombre.value.length < 3) {
+                nombre.classList.add("input-error");
+                errornombre.textContent = "Necesitas al menos 3 caracteres";
+                valido = false;
+            }
+            else {
+                nombre.classList.remove("input-error");
+                errornombre.textContent = "";
+            }
+
+            let erroremail = document.getElementById("erroremail");
+
+            if (!email.value.includes("@") || !email.value.includes(".")) {
+                email.classList.add("input-error");
+                erroremail.textContent = "Necesitas un @ y un .";
+                valido = false;
+            }
+            else {
+                email.classList.remove("input-error");
+                erroremail.textContent = "";
+            }
+
+            let errorcontraseña = document.getElementById("errorcontraseña");
+
+            if (!/[A-Z]/.test(contraseña.value) || !/[!@#$%^&*(),.?":{}|<>]/.test(contraseña.value)) {
+                contraseña.classList.add("input-error");
+                errorcontraseña.textContent = "Necesitas una mayúscula y un carácter especial";
+                valido = false;
+            } else {
+                contraseña.classList.remove("input-error");
+                errorcontraseña.textContent = "";
+            }
+
+        });
 
 
-</script>
+    </script>
 </body>
+
 </html>
