@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="formulario">
+        <label>Introduce tu nombre</label>
+        </br>
+        <input type="text" id="nombre" minlength="3" maxlength="18" required placeholder="Juan..." title="Debe contener al menos una mayuscula">
+        <span id="errornombre" class="error" style="color: red;"></span>
+        </br></br>
+        <label>Introduce tu email</label>
+        </br>
+        <input type="email" id="email" required placeholder="aaa@aaa.com">
+        <span id="erroremail" class="error" style="color: red;"></span>
+        </br></br>
+        <label>Introduce tu edad</label>
+        </br>
+        <input type="number" id="edad" minlength="18" maxlength="67" placeholder="min 18 max 67">
+        <span id="erroredad" class="error" style="color: red;"></span>
+        </br></br>
+        <label>Introduce una contraseña</label>
+        </br>
+        <input type="password" id="contraseña" required maxlength="18" placeholder="***" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+        <span id="errorcontraseña" class="error" style="color: red;"></span>
+        </br></br>
+        <label>Introduce tu fecha de nacimiento</label>
+        </br>
+        <input type="date" id="nacimiento" required>
+        <span id="errornacimiento" class="error" style="color: red;"></span>
+        </br></br>
+        <label>Introduce tu red social (opcional)</label>
+        </br>
+        <input type="url" id="redsocial" placeholder="@instagram">
+        </br></br>
+        <label>Introduce tu numero de telefono</label>
+        </br>
+        <input type="tel" id="telefono" required minlength="9" placeholder="+34...">
+        <span id="errortelefono" class="error" style="color: red;"></span>
+        </br></br>
+        <label>Selecciona tu estado laboral</label>
+        </br>
+        <input type="checkbox" id="desempleo" name="En desempleo">En desempleo</input>
+        <input type="checkbox" id="trabajando" name="Trabajando">Trabajando</input>
+        <span id="errorlaboral" class="error" style="color: red;"></span>
+        </br></br>
+        <label>Estado civil</label>
+        <select required id="estadocivil">
+            <option>Solter@</option>
+            <option>Divorciad@</option>
+            <option>Viud@</option>
+        </select>
+        <span id="errorestadocivil" class="error" style="color: red;"></span>
+        </br></br>
+        <label>Por favor dejanos tu opinion</label>
+        </br>
+        <textarea minlength="6" id="textarea">Escribe aqui...</textarea>
+        </br></br>
+        <label>Introduce tu peso</label>
+        </br>
+        <input type="number" id="peso" step="0.1" placeholder="70.5">
+        <span id="errorpeso" class="error" style="color: red;"></span>
+        <!-- step permite introducir numeros decimales -->
+         </br></br>
+        <input type="submit" placeholder="validar">
+        <span id="errorvalidar" class="error" style="color: red;"></span>
+    </form>
+<script>
+
+    let formulario = document.getElementById("formulario");
+    let nombre = document.getElementById("nombre");
+    let email = document.getElementById("email");
+    let edad = document.getElementById("edad");
+    let contraseña = document.getElementById("contraseña");
+    let nacimiento = document.getElementById("nacimiento");
+    let telefono = document.getElementById("telefono");
+    let desempleo = document.getElementById("desempleo");
+    let trabajando = document.getElementById("trabajando");
+    let estadocivil = document.getElementById("estadocivil");
+    let textarea = document.getElementById("textarea");
+    let peso = document.getElementById("peso");
+
+    formulario.addEventListener("submit", validaciones => {
+        validaciones.preventDefault();
+    });
+
+    let valido = true;
+
+    if(campoincorrecto){
+        valido=false;
+    };
+
+    if(!valido){
+        validaciones.preventDefault();
+    };
+
+
+</script>
+</body>
+</html>

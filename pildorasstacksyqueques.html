@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    let edades = [34,15,23,67,54,18,45,13,9,44,32,70];
+    let nombres = ["maria", "juan", "marcos", "paula", "pedro", "juan"];
+
+    //push y pop permiten añadir o eliminar a la ultima posicion del array
+
+    edades.push(90, 27);
+
+    document.write(edades);
+
+    document.write("</br>");
+
+    edades.pop();
+
+    document.write(edades);
+
+    //unshift y shift permiten añadir y eliminar el primer elemento de un array
+
+    nombres.unshift("Luis"); //Unshift agrega al primer lugar
+
+    document.write("</br>");
+
+    document.write(nombres);
+
+    nombres.shift(); //shift bora el primer elemento
+
+    document.write("</br>");
+
+    document.write(nombres);
+
+    document.write("</br>");
+
+    //Slice permite seleccionar (es este caso con el document.write) elementos de un array que se encuentren en las posiciones
+    //que estan entre parentesis en este caso la posicion 2 y la 4. Permite insertar numeros en negativo y cuando eso pase
+    //volvera a recorrer el array hasta encontrar esa posicion
+
+    document.write(edades.slice(2,4));
+
+    document.write("</br>");
+
+    document.write(edades.slice(5)); //Esto imprimira desde la posicion 5 hata el final del array
+
+    document.write("</br>");
+
+
+
+</script>
+</body>
+</html>
