@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let personas = ["Juan", "Paco", "Antonio","Juan", "Maria", "Ana", "Sara","Juan", "Oscar"];
+
+        //Index of nos dice el indice donde se encuentra el elemento buscado
+
+        document.write(personas.indexOf("Paco"));
+        document.write("</br>");
+        document.write(personas.indexOf("Olga"));
+
+        //Si buscamos algo que no esta con indexof nos devolvera -1
+        //Si buscamos algo que esta repetido nos devolvera siempre la primera posicion en la que esta y ninguna mas.
+        //Lastindexof lo que hace es a la inversa, nos devuelve el ultimo elemento que queramos buscar, en este caso
+        //como tengo 2 juan, nos saldra la posicion del segundo
+
+        document.write("</br>");
+        document.write(personas.lastIndexOf("Juan"));
+
+        //Si quisieramos buscar un elemento en el medio, como juan, que aparece 3 veces, podemos usar el indexof con otro 
+        //parametro mas que lo que va a hacer es buscar a partir de una posicion en concreto, en este caso desde la posicion 2
+        //En el navegador aparecera la posicion 3, es decir, tiene en cuenta los otros elementos tambien y cuenta desde el
+        //principio del array
+
+        document.write("</br>");
+        document.write(personas.indexOf("Juan", 2));
+
+        //a este indexof con ese segundo parametro, le podemos poner un numero negativo y empezara a contar desde ese
+        //numero negativo en adelante, es decir si yo pusiera un 6, contaria desde ese hacia delante
+        //Si tuviesemos un array mucho mas grande, para buscar elementos estos metodos se quedan un poco cortos
+        //pero si los juntamos con una funcion, pueden funcionar mucho mejor
+
+        //aqui abajo mi array es quien va a recibir los parametros y elementobuscado es donde se va a guardar los elementos que
+        //vayamos buscando. En la variable resultado se almacenaran las posiciones del elemento buscado
+        //En longitud guardaremos la longitud del array pero en posicion es donde se ira guardando los indices del
+        //elemento buscado. Luego utilizamos un while para que vaya recorriendo todo el array buscando lo que necesitamos
+
+        document.write("</br>");
+
+        function encontrar (miarray, elementobuscado){
+
+            let resultado =[];
+
+            longitud = miarray.length;
+
+            posicion = 0;
+
+            while(posicion<longitud){
+                posicion=miarray.indexOf(elementobuscado, posicion);
+                //Aqui lo que hace es buscar en todo el array (elementobuscado) y el segundo parametro busca desde una posicion
+                //en este caso como esta en 0 empezara desde el principio
+                //La sintaxis de aqui arriba seria busca el primer elemento del array con la posicion 0
+
+                if(posicion==-1){
+                    //Como he dicho anteriormente al buscar un elemento que no existe, aparecera en pantalla -1
+                    //asique si esa condicion se cumple, saldra del bucle
+                    break;
+                }
+
+                resultado.push(posicion);
+                posicion +=1;
+            }
+
+            return resultado;
+
+        }
+
+        document.write(encontrar(personas,"Juan"));
+        document.write("</br>");
+        document.write(personas.includes("Maria"));
+        //Esto de aqui arriba pone true o false dependiendo si el elemento existe o no, si existe saldra true y si no false
+
+    //PARA TRANSFORMAR ARRAYS A TEXTO CON JOIN() Y TOSTRING()
+    document.write("</br>");
+    
+    
+
+    </script>
+</body>
+</html>
