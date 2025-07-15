@@ -1,11 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 30px;
+            background:
+                #f0f0f0;
+        }
+
+        input,
+        button {
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        #resultado {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <h2>Transformar texto</h2>
+
+    <input type="text" id="texto" placeholder="Escribe algo..." />
+    <button onclick="transformar()">Transformar</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        function transformar() {
+            const texto = document.getElementById("texto").value;
+
+            const enMayusculas = texto.toUpperCase();
+            const enMinusculas = texto.toLowerCase();
+
+            document.getElementById("resultado").innerHTML = ` 
+        <strong>Original:</strong> ${texto} <br> 
+        <strong>Mayúsculas:</strong> ${enMayusculas} <br> 
+        <strong>Minúsculas:</strong> ${enMinusculas} 
+      `;
+        } 
+    </script>  
+
 </body>
+
 </html>
