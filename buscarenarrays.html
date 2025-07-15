@@ -80,7 +80,16 @@
     //PARA TRANSFORMAR ARRAYS A TEXTO CON JOIN() Y TOSTRING()
     document.write("</br>");
     
+    document.write(personas.join());
+    //Con esto podemos ver todo lo que hay en un array. El parametro que tiene join es para
+    //introducir separacion entre elementos, podemos poner " " o - o lo que sea, por defecto podra , ejemplo:
+    // document.write(personas.join(" ")); añadira un espacio vacio entre elementos
     
+    document.write("</br>");
+    let numeros = [1,2,3,4,5,6,7,8,9,0];
+    document.write(numeros.join());
+    document.write("</br>");
+    document.write(numeros.toString());
 
     </script>
 </body>

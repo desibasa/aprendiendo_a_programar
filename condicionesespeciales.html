@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Validar Nombre de Usuario</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Crear Nombre de Usuario</h2>
+    <form id="formUser">
+        <label for="usuario">Nombre de usuario:</label><br />
+        <input type="text" id="usuario" />
+        <span id="errorUsuario" class="error"></span><br /><br />
+        <button type="submit">Validar</button>
+    </form>
+
+    <script>
+        document.getElementById("formUser").addEventListener("submit",
+            function (e) {
+                e.preventDefault();
+
+                const usuario = document.getElementById("usuario").value.trim();
+                const error = document.getElementById("errorUsuario");
+
+                let errores = [];
+
+                // 1. Longitud 
+                if (usuario.length < 4 || usuario.length > 12) {
+                    errores.push("Debe tener entre 4 y 12 caracteres.");
+                }
+
+                // 2. No debe tener espacios 
+                if (usuario.includes(" ")) {
+                    errores.push("No debe contener espacios.");
+                }
+
+                // 3. Debe tener al menos una vocal 
+                const vocales = ["a", "e", "i", "o", "u"];
+                let tieneVocal = false;
+
+                // 4. No debe tener símbolos especiales 
+                const caracteres = usuario.split("");
+                let tieneSimbolo = false;
+
+                caracteres.forEach(letra => {
+                    if (vocales.includes(letra.toLowerCase())) {
+                        tieneVocal = true;
+                    }
+
+                    const esLetra = letra.toLowerCase() !== letra.toUpperCase();
+                    const esNumero = !isNaN(letra);
+
+                    if (!esLetra && !esNumero) {
+                        tieneSimbolo = true;
+                    }
+                });
+
+                if (!tieneVocal) {
+                    errores.push("Debe contener al menos una vocal.");
+                }
+
+                if (tieneSimbolo) {
+                    errores.push("No debe contener símbolos especiales.");
+                }
+
+                if (errores.length > 0) {
+                    error.textContent = errores.join(" ");
+                } else {
+                    error.textContent = "";
+                    console.log("Nombre de usuario válido");
+                }
+            }); 
+    </script>
+</body>
+
+</html>
