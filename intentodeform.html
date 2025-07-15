@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error{
+            color: red;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <h2>Prueba de una contraseña segura</h2>
+    <form id="formulario">
+        <label>Contraseña: </label>
+        </br>
+        <input type="text" id="contraseña1">
+        <span id="error"></span>
+        </br>
+        <label>Repite la contraseña: </label>
+        </br>
+        <input type="text" id="contraseña2">
+        <span id="error2"></span>
+        </br></br>
+        <input type="submit">
+    </form>
+<script>
+
+    document.getElementById("formulario").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        let contraseña1 = document.getElementById("contraseña1").value;
+        let contraseña2 = document.getElementById("contraseña2").value;
+        let valorcontraseña = false;
+        let error = document.querySelector("span");
+
+        if(contraseña1.length < 4 || contraseña1.length > 12){
+            error.classList.add("error");
+            error.textContent = "por favor introduce entre 4 y 5 digitos";
+        }
+        else {
+            error.classList.remove("error");
+            error.textContent = "";
+        }
+
+        let letras = contraseña1.split();
+        let unaporuna = [];
+        
+        letras.forEach(letra => {
+            let
+        });
+
+    });
+
+</script>
+</body>
+</html>
