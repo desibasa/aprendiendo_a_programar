@@ -14,7 +14,7 @@
 
         nombredelavariable();
 
-        for(let i=0; i<10;i++){
+        for(let i=0; i<5;i++){
             nombredelavariable();
         }
 
@@ -32,6 +32,31 @@
         let nombre_usuario = prompt("introduce tu nombre");
 
         saludo(nombre_usuario);
+        document.write("</br>");
+
+        function suma (numero1, numero2,numero3){
+            return numero1+numero2+numero3
+            //Este return lo que hace es devolvernos esta operacion pero no aqui, si no cuando invoquemos a la funcion. En este caso
+            //despues de suma(12,20,1);
+        }
+
+        suma(15,20,1);
+
+        document.write("</br>");
+        let resultado_suma = suma(5,10,15); //Estamos llamando a la funcion suma para que guarde 30 (5+10+15)
+        document.write(resultado_suma);
+
+        document.write("</br>");
+        function comisiones (ventas, antiguedad, zona){
+
+            let comision = 0;
+
+        }
+
+        //minuto 15
+
+
+
     </script>
 </body>
 </html>

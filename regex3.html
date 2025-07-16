@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            width: 100%;
+            background: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+            height: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Registro</h2>
+    <form id="formulario">
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" name="nombre" required />
+        <small class="error" id="error-nombre"></small>
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required />
+        <small class="error" id="error-email"></small>
+
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required />
+        <small class="error" id="error-password"></small>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+
+        const formulario = document.getElementById('formulario');
+
+        formulario.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const nombre = document.getElementById('nombre').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            const errorNombre = document.getElementById('error-nombre');
+            const errorEmail = document.getElementById('error-email');
+            const errorPassword = document.getElementById('error-password');
+
+            let nombreValido = false;
+            let emailValido = false;
+            let passwordValida = false;
+
+            if (!nombreValido) {
+                errorNombre.textContent = "Nombre inválido";
+            } else {
+                errorNombre.textContent = "";
+            }
+
+            if (!emailValido) {
+                errorEmail.textContent = "Correo inválido";
+            } else {
+                errorEmail.textContent = "";
+            }
+
+            if (!passwordValida) {
+                errorPassword.textContent = "Contraseña inválida";
+            } else {
+                errorPassword.textContent = "";
+            }
+
+            if (nombreValido && emailValido && passwordValida) {
+                alert("Formulario enviado correctamente");
+                formulario.reset();
+            }
+        });
+
+    </script>
+</body>
+
+</html>
