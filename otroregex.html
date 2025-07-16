@@ -1,0 +1,64 @@
+<!DOCTYPE html> 
+<html lang="es"> 
+<head> 
+<meta charset="UTF-8" /> 
+  <title>Validación con RegEx</title> 
+  <style> 
+    body { font-family: sans-serif; padding: 20px; } 
+    input { margin-bottom: 10px; display: block; } 
+    .error { color: red; font-size: 14px; } 
+  </style> 
+</head> 
+<body> 
+ 
+  <h2>Formulario con validación RegEx</h2> 
+  <form id="formulario"> 
+    <label>Nombre de usuario:</label> 
+    <input type="text" id="nombre" /> 
+    <span id="errorNombre" class="error"></span> 
+ 
+    <label>Contraseña:</label> 
+    <input type="password" id="password" /> 
+    <span id="errorPassword" class="error"></span> 
+ 
+    <button type="submit">Validar</button> 
+  </form> 
+ 
+  <script> 
+    const form = document.getElementById("formulario"); 
+ 
+    form.addEventListener("submit", function (e) { 
+      e.preventDefault(); 
+ 
+      const nombre = document.getElementById("nombre").value.trim(); 
+      const password = document.getElementById("password").value.trim(); 
+      const errorNombre = document.getElementById("errorNombre"); 
+      const errorPassword = document.getElementById("errorPassword"); 
+ 
+      const regexNombre = /^[a-zA-Z0-9]{4,12}$/;
+      const regexPassword = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$%!*?=]))[AZa-z\d@$!%*?&]{8,}$/;
+ 
+      let valido = true; 
+ 
+      if (!regexNombre.test(nombre)) { 
+        errorNombre.textContent = "Nombre inválido. Solo letras y números (4-12 caracteres)."; 
+        valido = false; 
+      } else { 
+        errorNombre.textContent = ""; 
+      } 
+ 
+      // Validar contraseña 
+      if (!regexPassword.test(password)) { 
+        errorPassword.textContent = "Contraseña inválida. Mínimo 6 caracteres, con letra y número."; 
+        valido = false; 
+      } else { 
+        errorPassword.textContent = ""; 
+      } 
+ 
+      if (valido) { 
+        console.log("Datos válidos. Enviando..."); 
+      } 
+    }); 
+  </script> 
+</body> 
+</html>

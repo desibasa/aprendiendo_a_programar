@@ -19,7 +19,7 @@
  
     <label>Contraseña:</label> 
     <input type="password" id="password" /> 
-    <span id="errorpassword" class="error"></span> 
+    <span id="errorPassword" class="error"></span> 
  
     <button type="submit">Validar</button> 
   </form>
@@ -32,11 +32,11 @@
 
         let nombre = document.getElementById("nombre").value;
         let contraseña = document.getElementById("password").value;
-        let caracteres_especiales = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[AZa-z\d@$!%*?&]{8,}$/ ;
-        let error = document.getElementById("errorpassword");
+        let caracteres_especiales = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/ ;
+        let error = document.getElementById("errorPassword");
 
         if(caracteres_especiales.test(contraseña)){
-            document.write("Contraseña aceptada");
+            alert("Contraseña aceptada");
         }
         else {
             error.textContent = "Error la contraseña es invalida";
