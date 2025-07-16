@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+    body { font-family: sans-serif; padding: 20px; } 
+    input { margin-bottom: 10px; display: block; } 
+    .error { color: red; font-size: 14px; } 
+  </style>
+</head>
+<body>
+     <h2>Formulario con validación RegEx</h2> 
+  <form id="formulario"> 
+    <label>Nombre de usuario:</label> 
+    <input type="text" id="nombre" /> 
+    <span id="errorNombre" class="error"></span> 
+ 
+    <label>Contraseña:</label> 
+    <input type="password" id="password" /> 
+    <span id="errorpassword" class="error"></span> 
+ 
+    <button type="submit">Validar</button> 
+  </form>
+  <script>
+
+    let formulario = document.getElementById("formulario");
+
+    document.getElementById("formulario").addEventListener("submit", (e) =>{
+        e.preventDefault();
+
+        let nombre = document.getElementById("nombre").value;
+        let contraseña = document.getElementById("password").value;
+        let caracteres_especiales = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[AZa-z\d@$!%*?&]{8,}$/ ;
+        let error = document.getElementById("errorpassword");
+
+        if(caracteres_especiales.test(contraseña)){
+            document.write("Contraseña aceptada");
+        }
+        else {
+            error.textContent = "Error la contraseña es invalida";
+        }
+    });
+
+  </script>
+</body>
+</html>

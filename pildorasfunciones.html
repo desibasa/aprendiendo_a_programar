@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function nombredelavariable (){
+            document.write("Hola mundo" + "</br>");
+        }
+
+        nombredelavariable();
+
+        for(let i=0; i<10;i++){
+            nombredelavariable();
+        }
+
+        //los parametros solo funcionan de manera local, son como variables que podemos utiizar dentro de la funcion
+        //Si una funcion tiene un parametro, a la hora de invocarla tambien hay que pasar ese parametro ejemplo:
+        //function uno (parametro) {...}...uno(parametro);
+
+        function saludo (nombre) {
+            document.write("Bienvenido " + nombre + "</br>");
+        }
+
+        saludo("Juan");
+        //Aqui juan es un argumento que va a ser pasado al parametro nombre, es decir, ahora nombre almacenara juan
+
+        let nombre_usuario = prompt("introduce tu nombre");
+
+        saludo(nombre_usuario);
+    </script>
+</body>
+</html>
