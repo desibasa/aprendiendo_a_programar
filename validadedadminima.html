@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        label,
+        input {
+            display: block;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+            display: none;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            width: 100%;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background-color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Formulario con validación de edad</h2>
+
+    <form id="formulario">
+        <label for="fechaNacimiento">Fecha de nacimiento:</label>
+        <input type="date" id="fechaNacimiento" required>
+
+        <p class="error" id="errorEdad">Debes tener al menos 18 años para continuar.</p>
+
+        <button type="submit" id="btnEnviar" disabled>Enviar</button>
+    </form>
+
+    <script>
+        const fechaNacimiento = document.getElementById('fechaNacimiento');
+        const errorEdad = document.getElementById('errorEdad');
+        const btnEnviar = document.getElementById('btnEnviar');
+        const formulario = document.getElementById('formulario');
+
+
+        fechaNacimiento.addEventListener('change', () => {
+            const fechaSeleccionada = new Date(fechaNacimiento.value);
+            const hoy = new Date();
+
+
+            let edad = hoy.getFullYear() - fechaSeleccionada.getFullYear();
+            const mes = hoy.getMonth() - fechaSeleccionada.getMonth();
+
+            if (mes < 0 || (mes === 0 && hoy.getDate() < fechaSeleccionada.getDate())) {
+                edad--;
+            }
+
+            if (edad < 18) {
+                errorEdad.style.display = 'block';
+                btnEnviar.disabled = true;
+            } else {
+                errorEdad.style.display = 'none';
+                btnEnviar.disabled = false;
+            }
+        });
+
+        formulario.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert("Formulario enviado correctamente");
+            formulario.reset();
+            btnEnviar.disabled = true;
+        }); 
+    </script>
+</body>
+
+</html>
