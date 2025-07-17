@@ -67,12 +67,64 @@
 
         }
 
+        document.write("</br>");
+
         totalventas = parseFloat(prompt("Introduce las ventas de este mes"));
         antiguedadempresa = parseInt(prompt("Cuantos años llevas trabajados en esta empresa?"));
         zonaventas = prompt("Donde trabajas en zona norte, sur, este, oeste");
 
         document.write("La comision de este mes es : ", comisiones(totalventas, antiguedadempresa, zonaventas));
 
+        function area (lado){
+
+            return lado*lado;
+
+        }
+
+        let lado_figura = prompt("Cuanto mide el lado?");
+
+        document.writeln("Tu cuadrado tiene el area de : ", area(lado_figura));
+
+        document.write("</br>");
+
+        //se puede escribir de forma mas sencilla, con funcion a expresion
+
+        let lado_cuadrado = function area_cuadrado (lateral) {return lateral*lateral;};
+
+        document.write(lado_cuadrado(7));
+
+        document.write("</br>");
+
+        //de otra forma mucho mas sencilla
+
+        let cuadrado = function (laterl) {return laterl*laterl;};
+        document.write(cuadrado(prompt("Introduce el valor")));
+
+        function factorial (num){
+
+            let resultado = 1;
+
+            if(num<=1) return 1;
+
+            else{
+
+                for(leti=1;i<num;i++){
+                    resultado=resultado*i;
+                }
+
+            }
+
+            return resultado;
+
+        }
+
+        document.write("</br>");
+
+        document.write(factorial(5));
+
+        //Esto de aqui arriba se puede resumir como abajo
+
+        //const factorial = function factorial(num){if(num<=1) return 1; else return num*factorial(num-1);}
 
     </script>
 </body>

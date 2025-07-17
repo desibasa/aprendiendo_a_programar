@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        .hobbies {
+            margin-top: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            width: 100%;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background-color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="formulario">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" />
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" />
+        <label for="fecha">Fecha de nacimiento:</label>
+        <input type="date" id="fecha" name="fecha" />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" />
+
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" />
+
+        <label>Hobbies:</label>
+        <div class="hobbies">
+            <label><input type="checkbox" name="hobby" value="Estudiar" />Estudiar</label>
+            <label><input type="checkbox" name="hobby" value="Leer" />Leer</label>
+            <label><input type="checkbox" id="otroHobbyCheck" />Otro</label>
+        </div>
+
+        <div id="otroHobbyCampo" class="hidden">
+            <label for="otroHobby">Especifica tu hobby:</label>
+            <input type="text" id="otroHobby" />
+        </div>
+
+        <label>
+            <input type="checkbox" id="politicas" />
+            Acepto las políticas de privacidad
+        </label>
+
+        <button type="submit" id="btnEnviar" disabled>Enviar</button>
+    </form>
+
+    <script>
+        const formulario = document.getElementById("formulario");
+        const boton = document.getElementById("btnEnviar");
+        const politicas = document.getElementById("politicas");
+        const otroHobbyCheck = document.getElementById("otroHobbyCheck");
+        const otroHobbyCampo = document.getElementById("otroHobbyCampo");
+
+        otroHobbyCheck.addEventListener("change", () => {
+            if (otroHobbyCheck.checked) {
+                otroHobbyCampo.classList.remove("hidden");
+            } else {
+                otroHobbyCampo.classList.add("hidden");
+            }
+        });
+
+        politicas.addEventListener("change", () => {
+            boton.disabled = !politicas.checked;
+        });
+
+        formulario.addEventListener("submit"), function (e) {
+            e.preventDefault();
+        };
+
+
+    </script>
+</body>
+
+</html>
