@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 40px auto;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+
+        input[type="text"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            width: 100%;
+            background: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="formulario">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" />
+
+        <label>
+            <input type="checkbox" id="toggle" />
+            ¿Deseas añadir más información?
+        </label>
+
+        <div id="extras" class="hidden">
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" />
+
+            <label for="ciudad">Ciudad:</label>
+            <input type="text" id="ciudad" name="ciudad" />
+        </div>
+
+        <button type="submit">Enviar</button>
+    </form>
+    <script>
+
+        let mostrarcaja = document.getElementById("toggle");
+        let extras = document.getElementById("extras");
+
+        mostrarcaja.addEventListener("change", () => {
+            
+            if(mostrarcaja.checked){
+                extras.classList.remove("hidden");
+            }
+            else{
+                extras.classList.add("hidden");
+            }
+
+        });
+
+    </script>
+</body>
+
+</html>

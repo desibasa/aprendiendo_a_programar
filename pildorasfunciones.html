@@ -51,9 +51,22 @@
 
             let comision = 0;
 
+            if(ventas<1000){
+                comision = (ventas*15)/100;
+            }
+
+            if(antiguedad>5){
+                comision += 100;
+            }
+
+            if(zona=="norte") comision +=50;
+
+            if(zona=="sur") comision +=60;
+
+            return comision;
+
         }
 
-        //minuto 15
 
 
 
