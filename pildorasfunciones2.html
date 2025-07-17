@@ -20,7 +20,6 @@
 
         let cuadrado_area=function(lado){return lado*lado;};
 
-        document.write(cuadrado_area(5));
 
         //Tambien se puede hacer con una funcion flecha
 
@@ -32,7 +31,14 @@
             return (base*altura)/2;
         }
 
+        document.write(area_cuadrado(prompt("introduce el lado")));
 
+        document.write("</br>");
+
+        document.write(area_triangulo(
+            parseFloat (prompt("Introduce la base")),
+            parseFloat (prompt("Introduce la altura"))
+        ));
 
     </script>
 </body>
