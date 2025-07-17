@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        
+
+        function area_cuadrado(lado){
+
+            return lado*lado
+
+        }
+
+        //Eto se puede hacer como aqui abajo
+
+        let cuadrado_area=function(lado){return lado*lado;};
+
+        document.write(cuadrado_area(5));
+
+        //Tambien se puede hacer con una funcion flecha
+
+        let cuadrado = (lado) => {
+            return lado*lado;
+        };
+
+        let area_triangulo = (base, altura) => {
+            return (base*altura)/2;
+        }
+
+
+
+    </script>
+</body>
+</html>
