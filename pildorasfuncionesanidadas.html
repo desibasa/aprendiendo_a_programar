@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function calculo_hipotenusa (catetoA, catetoB){
+
+            let suma_cuadrados=(catetoA*catetoA)+(catetoB*catetoB);
+
+            //Esto se podria hacer con un metodo llamado Math.pow que lo que hace es calcular el potencial de un numero x veces y quedaria como abajo
+            //let suma_cuadrados=(Math.pow(catetoA,2))+(Math.pow(catetoB,2));
+
+            return Math.sqrt(suma_cuadrados);
+
+        }
+
+        let catetoA = prompt("Introduce la longitud del cateto A");
+        let catetoB= prompt("Introduce la longitud del cateto B");
+
+        document.write(calculo_hipotenusa(catetoA, catetoB));
+
+        //El codigo de aqui arriba se puede hacer con funciones anidadas y quedaria como el siguiente codigo: 
+
+        function hipotenusa (catetoA, catetoB){
+
+            function cuadrado (cateto) {
+                return cateto*cateto;
+            }
+
+            return Math.sqrt(cuadrado(catetoA)+cuadrado(catetoB));
+
+        }
+
+        document.write("</br>");
+        document.write(hipotenusa(catetoA, catetoB));
+
+        //Con funcion flecha quedaria asi:
+
+    </script>
+</body>
+</html>

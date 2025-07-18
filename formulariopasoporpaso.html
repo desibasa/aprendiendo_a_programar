@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Formulario Multipaso</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .step {
+            display: none;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background-color: #aaa;
+        }
+
+        .resumen {
+            background: #f7f7f7;
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Formulario multipaso</h2>
+
+    <form id="formulario">
+        <div class="step active" id="paso1">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" />
+
+            <div class="buttons">
+                <span></span>
+                <button type="button" id="siguiente1">Siguiente</button>
+            </div>
+        </div>
+
+        <div class="step" id="paso2">
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" />
+
+            <div class="buttons">
+                <button type="button" id="volver1">Volver</button>
+                <button type="button" id="siguiente2">Siguiente</button>
+            </div>
+        </div>
+
+        <div class="step" id="paso3">
+            <h3>Confirmación</h3>
+            <div class="resumen" id="resumen"></div>
+
+            <div class="buttons">
+                <button type="button" id="volver2">Volver</button>
+                <button type="submit">Enviar</button>
+            </div>
+        </div>
+    </form>
+    <script>
+
+        const pasos = document.querySelectorAll(".step");
+        const resumen = document.getElementById("resumen");
+        const nombre = document.getElementById("nombre");
+        const email = document.getElementById("email");
+        const direccion = document.getElementById("direccion");
+        const formulario = document.getElementById("formulario");
+
+        function mostrarPaso(numeroPaso) {
+            pasos.forEach(function (paso, i) {
+                if (i === numeroPaso) {
+                    paso.classList.add("active");
+                } else {
+                    paso.classList.remove("active");
+                }
+            });
+        }
+
+        function validarPaso1() {
+            return nombre.value.trim() !== "" && email.value.trim() !== "";
+        }
+
+        function validarPaso2() {
+            return direccion.value.trim() !== "";
+        }
+
+        document.getElementById("siguiente1").addEventListener("click", () => {
+            if (validarPaso1()) {
+                mostrarPaso(1);
+            } else {
+                alert("Completa todos los campos del paso 1");
+            }
+        });
+
+        document.getElementById("volver1").addEventListener("click", () => {
+            mostrarPaso(0);
+        });
+
+        document.getElementById("siguiente2").addEventListener("click", () => {
+            if (validarPaso2()) {
+                mostrarPaso(2);
+                mostrarResumen();
+            } else {
+                alert("Completa la dirección");
+            }
+        });
+
+        document.getElementById("volver2").addEventListener("click", () => {
+            mostrarPaso(1);
+        });
+
+        function mostrarResumen() {
+            resumen.innerHTML = 
+                `<p><strong>Nombre:</strong> ${nombre.value}</p> 
+                <p><strong>Email:</strong> ${email.value}</p> 
+                <p><strong>Dirección:</strong> ${direccion.value}</p>`;
+        }
+
+        formulario.addEventListener("submit", (e) => {
+            e.preventDefault();
+            alert("Formulario enviado correctamente");
+            formulario.reset();
+            mostrarPaso(0);
+        });
+
+    </script>
+</body>
+
+</html>
