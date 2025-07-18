@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //HERENCIAS. Si tenemos una clase que nos crea objetos pero necesitamos mas propiedades, usaremos la herencia para que 
+        //tenga las caracteristicas anteriores y ademas le añadiremos los extras
+
+        class Usuario{
+
+            constructor(El_nombre, La_contraseña, La_profesion){
+
+                this.nombre=El_nombre;
+                this.contraseña=La_contraseña;                      //AQUI LAS PROPIEDADES (LO QUE ES EL OBJETO)
+                this.profesion=La_profesion;
+
+            }
+
+            saludar(){
+                return "Soy un usuario y estoy saludando";
+            }
+            login(){
+                return "Me he logueado";                            //AQUI LOS METODOS (LO QUE HACE EL OBJETO)
+            }
+            logout(){
+                return "Me he deslogueado";
+            }
+
+        }
+
+        let usuario_maria = new Usuario("Maria","12345","administrativa");
+
+        //AQUI ABAJO VOY A CREAR UN OBJETO QUE TENGA ESTAS HERENCIAS Y ADEMAS LE AÑADIRE UNA CLASE NUEVA CON UNA PROPIEDAD Y UN METODO ADICIONALES
+
+        class Estudiante extends Usuario {
+            //Extends sirve para decirle que es una extension de usuario es decir la clase estudiante es una extension de la clase usuario
+            constructor (El_curso){
+                this.curso=El_curso;
+                super();
+                //Que es lo que hace es que cuando lea esta linea ejecutara al constructor DE LA CLASE DEL PADRE
+            }
+
+            estudia(tema){
+                return "Estoy estudiando : " + tema;
+            }
+
+        }
+
+        let estudiante_paco = new Estudiante("Excel");
+
+        document.write(estudiante_paco.saludar());
+
+    </script>
+</body>
+</html>

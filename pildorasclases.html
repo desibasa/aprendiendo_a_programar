@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //LAS CLASES SIRVEN PARA FABRICA OBJETOS. Describen las propiedades(como es) y los metodos de un objeto(lo que hace)
+        //a esto se le llama abstraccion. Abajo voy a crear un objeto usuario con propiedades de nombre, contraseña y perfil
+        //y el metodo saludar (lo normal serian metodos como login o logout)
+        //los nombres de las clases siempre tienen que empezar con mayuscula
+
+        class Usuario {
+            //Aqui iria la definicion de como es un usuario y deben de comenzar con un estado inicial (activado, desactivado, etc)
+            //Suelen comenzar con un constructor que indica ese estado inicial
+            constructor(El_nombre, La_contraseña, El_perfil){ //Un constructor es una funcion por eso siempre ira con parentesis y los respectivos parametros
+               
+                //Las propiedades de los objetos siempre van con la palabra this, que this hace referencia a la clase
+                this.nombre=El_nombre;
+                //Es decir aqui lo que hago es que los objetos Usuario tengan la propiedad nombre
+                this.contraseña=La_contraseña;
+
+                this.perfil=El_perfil;
+            }
+
+            //Los metodos (es decir lo que hace el objeto) van fuera del constructor
+            saludar(){
+                document.write("Hola mundo");
+            }
+        }
+
+        //Ya hemos terminado de crear la clase (es decir la fabrica de objetos Usuario) y para que se active podemos hacerlo de varias formas:
+
+        let usuario_maria = new Usuario("Maria", "123456", "Administrativa"); //Para iniciar ponemos la palabra new seguido del nombre de la clase
+        // y si tiene parametros, los ponemos en el parentesis
+        let usuario_juan = new Usuario("Juan", "67891011", "Peon");
+        let usuario_sara = new Usuario("Sara", "186254", "Recursos humanos");
+        //Para acceder a una propiedad del objeto que quisieramos lo hariamos de la siguiente forma:
+        document.write(usuario_maria.contraseña);
+        //nombre_del_objeto.propiedad
+        document.write("</br>");
+        //Para saber lo que hace el metodo lo hariamos de la siguiente forma (aqui no pongo document.write porque ya lo hemos definido en la clase)
+        usuario_maria.saludar();
+
+
+    </script>
+</body>
+</html>
