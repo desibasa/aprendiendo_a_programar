@@ -38,10 +38,16 @@
 
         class Estudiante extends Usuario {
             //Extends sirve para decirle que es una extension de usuario es decir la clase estudiante es una extension de la clase usuario
-            constructor (El_curso){
-                this.curso=El_curso;
+            constructor (El_curso,El_nombre,La_contraseña,La_profesion){
+                //Podemos no poner parametros si queremos que se construya el objeto simplemente, si ponemos parametros es para
+                //obligar a rellenar esos parametros
+
                 super();
                 //Que es lo que hace es que cuando lea esta linea ejecutara al constructor DE LA CLASE DEL PADRE
+                //Si el super lo colocamos despues de this.curso NO FUNCIONARA LO TIENES QUE PONER SIEMPRE ANTES
+                //Lo que podemos hacer en super es pasarle directamente los nuevos parametros al estudiante paco
+                this.curso=El_curso;
+                
             }
 
             estudia(tema){
@@ -50,9 +56,9 @@
 
         }
 
-        let estudiante_paco = new Estudiante("Excel");
+        let estudiante_paco = new Estudiante("Excel","Paco","12345","En paro");
 
-        document.write(estudiante_paco.saludar());
+        document.write(estudiante_paco.curso);
 
     </script>
 </body>

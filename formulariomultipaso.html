@@ -4,8 +4,230 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style> 
+        body { 
+          font-family: Arial, sans-serif; 
+          background-color: #1e1e1e; 
+          color: #f0f0f0; 
+          padding: 40px; 
+        } 
+       
+        form { 
+          background: #2c2c2c; 
+          padding: 20px; 
+          border-radius: 10px; 
+          max-width: 600px; 
+          margin: auto; 
+        } 
+       
+        .step { 
+          display: none; 
+        } 
+       
+        .step.active { 
+          display: block; 
+        } 
+       
+        input, select { 
+          display: block; 
+          width: 100%; 
+          margin-top: 5px; 
+          padding: 10px; 
+          margin-bottom: 15px; 
+          border-radius: 5px; 
+          border: none; 
+        } 
+       
+        .checkbox-container { 
+          margin-top: 15px; 
+        } 
+       
+        button { 
+          padding: 10px 20px; 
+          background-color: #38b2ac; 
+          color: white; 
+          border: none; 
+          border-radius: 5px; 
+          margin-top: 10px; 
+          cursor: pointer; 
+        } 
+       
+        .error { 
+          border: 2px solid red; 
+        } 
+       
+        .error-message { 
+          color: red; 
+          font-size: 14px; 
+        } 
+      </style>
 </head>
 <body>
-    
+    <form id="formulario"> 
+ 
+        <!-- Paso 1: Datos personales --> 
+        <div class="step active" id="paso1"> 
+          <h2>Datos personales</h2> 
+       
+          <label for="nombre">Nombre:</label> 
+          <input type="text" id="nombre" required /> 
+       
+          <label for="apellidos">Apellidos:</label> 
+          <input type="text" id="apellidos" required /> 
+       
+          <label for="telefono">Teléfono:</label> 
+          <input type="tel" id="telefono" required /> 
+       
+          <button type="button" id="siguiente1">Continuar</button> 
+        </div> 
+       
+        <!-- Paso 2: Correo y edad --> 
+        <div class="step" id="paso2"> 
+          <h2>Contacto y Edad</h2> 
+       
+          <label for="email">Correo electrónico:</label> 
+          <input type="email" id="email" required /> 
+       
+          <label for="confirmarEmail">Confirmar correo:</label> 
+          <input type="email" id="confirmarEmail" required /> 
+       
+          <label for="nacimiento">Fecha de nacimiento:</label> 
+          <input type="date" id="nacimiento" required /> 
+       
+          <button type="button" id="volver1">Volver</button> 
+          <button type="button" id="siguiente2">Continuar</button> 
+        </div> 
+       
+        <!-- Paso 3: Estudios y Contraseña --> 
+        <div class="step" id="paso3"> 
+          <h2>Estudios y Seguridad</h2> 
+       
+          <label for="estudios">Estudios:</label> 
+          <select id="estudios"> 
+            <option value="">Selecciona una opción</option> 
+            <option value="ESO">ESO</option> 
+            <option value="Bachillerato">Bachillerato</option> 
+            <option value="FP">Formación Profesional</option> 
+            <option value="Universidad">Universidad</option> 
+          </select> 
+       
+          <label for="password">Contraseña:</label> 
+          <input type="password" id="password" required /> 
+       
+          <label for="confirmarPassword">Confirmar contraseña:</label> 
+          <input type="password" id="confirmarPassword" required /> 
+       
+          <div class="checkbox-container"> 
+            <input type="checkbox" id="politica" /> 
+            <label for="politica">Acepto la política de privacidad</label> 
+          </div> 
+       
+          <button type="button" id="volver2">Volver</button> 
+          <button type="submit">Enviar</button> 
+        </div> 
+      </form> 
+      <script> 
+        const pasos = document.querySelectorAll(".step"); 
+        const formulario = document.getElementById("formulario"); 
+       
+        const nombre = document.getElementById("nombre"); 
+        const apellidos = document.getElementById("apellidos"); 
+        const telefono = document.getElementById("telefono"); 
+        const email = document.getElementById("email"); 
+        const confirmarEmail = document.getElementById("confirmarEmail"); 
+        const nacimiento = document.getElementById("nacimiento"); 
+        const estudios = document.getElementById("estudios"); 
+        const password = document.getElementById("password"); 
+        const confirmarPassword = document.getElementById("confirmarPassword"); 
+        const politica = document.getElementById("politica"); 
+        const imagen = document.getElementById("imagen"); 
+        const preview = document.getElementById("preview"); 
+       
+
+        const regexNombre = /^[a-zA-ZÀ-ÿ\s]{2,}$/; 
+        const regexTelefono = /^\d{9}$/; 
+        const regexEmail = /^[\w.-]+@[\w.-]+\.\w{2,}$/; 
+        const regexPassword = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/; 
+       
+
+        function mostrarPaso(n) { 
+          pasos.forEach((paso, i) => { 
+            paso.classList.toggle("active", i === n); 
+          }); 
+        } 
+       
+        // 
+
+        function validarEdad(fecha) { 
+          const hoy = new Date(); 
+          const nacimiento = new Date(fecha); 
+          let edad = hoy.getFullYear() - nacimiento.getFullYear(); 
+          const mes = hoy.getMonth() - nacimiento.getMonth(); 
+          if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) { 
+            edad--; 
+          } 
+          return edad >= 18; 
+        } 
+       
+        imagen.addEventListener("change", () => { 
+          const archivo = imagen.files[0]; 
+          if (archivo) { 
+            const lector = new FileReader(); 
+            lector.onload = function (e) { 
+              preview.src = e.target.result; 
+              preview.style.display = "block"; 
+            }; 
+            lector.readAsDataURL(archivo); 
+          } else { 
+            preview.style.display = "none"; 
+          } 
+        }); 
+       
+        document.getElementById("siguiente1").addEventListener("click", () => { 
+          if ( 
+            regexNombre.test(nombre.value) && 
+            regexNombre.test(apellidos.value) && 
+            regexTelefono.test(telefono.value) 
+          ) { 
+            mostrarPaso(1); 
+          } else { alert("Paso 1:\n- Nombre y apellidos solo letras\n- Teléfono debe tener 9 dígitos numéricos"); 
+          } 
+        }); 
+       
+
+        document.getElementById("volver1").addEventListener("click", () => 
+      mostrarPaso(0)); 
+       
+        document.getElementById("siguiente2").addEventListener("click", () => { 
+          if ( 
+            regexEmail.test(email.value) && 
+            email.value === confirmarEmail.value && 
+            validarEdad(nacimiento.value) 
+          ) { 
+            mostrarPaso(2); 
+          } else { 
+            alert("Paso 2:\n- El email debe ser válido y coincidir\n-Debes ser mayor de 18 años"); 
+          } 
+        }); 
+       
+
+        document.getElementById("volver2").addEventListener("click", () => mostrarPaso(1)); 
+
+        formulario.addEventListener("submit", (e) => { 
+          e.preventDefault(); 
+          if ( 
+            estudios.value && 
+            regexPassword.test(password.value) && 
+            password.value === confirmarPassword.value && 
+            politica.checked 
+          ) { 
+            alert("Formulario enviado correctamente"); 
+            formulario.reset(); 
+            preview.style.display = "none"; 
+            mostrarPaso(0); 
+          } else { alert("Paso 3:\n- Contraseña segura con mayúsculas y números\n- Confirma la contraseña\n- Acepta la política de privacidad"); 
+      } 
+      }); 
+      </script> 
 </body>
 </html>
