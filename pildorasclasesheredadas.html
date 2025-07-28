@@ -18,10 +18,16 @@
             get primero(){          //lo que haremos aqui es que nos devuelva el primero
                 return this[0];
             }
+
+            get ultimo(){
+                return this[this.length-1];
+            }
         }
 
         let array1 = new Manejo_array(); //Esto ya tiene un constructor por defecto que viene con la palabra reservada new. Array1 heredara todo de la clase array
-
+        array1.push("Antonio","Manolo");
+        document.write(array1.primero);
+        document.write(array1.ultimo);
         //VIDEO 58 A MEDIASSSSS TERMINAR ME HE QUEDADO EN EL MINUTO 8:03 PONER SOLO EL 8
 
     </script>
