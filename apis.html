@@ -1,0 +1,183 @@
+
+<!-- ESTE CODIGO ES EL ORIGINL PARA UN SOLO ELEMENTO, EL OTRO ES PARA VARIOS ESTA HECHO CON CHATGPT -->
+
+<!-- <!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pokemon</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        #usuarios {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            margin: 0 0 10px;
+            color: #007acc;
+        }
+
+        .card p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Pokemones</h1>
+    <div id="pokemon"></div>
+    <script>
+    const API_URL = 'https://pokeapi.co/api/v2/pokemon/ditto';
+
+    fetch(API_URL)
+        .then(response => response.json())
+        .then(data => {
+            console.log("✅ Datos recibidos:", data);
+
+            const pokemonDiv = document.getElementById('pokemon');
+
+            const card = document.createElement('div');
+            card.classList.add('card');
+
+            // Insertamos contenido dentro de la tarjeta
+            card.innerHTML = `
+                <h3>${data.name}</h3>
+                <p><strong>Altura:</strong> ${data.height}</p>
+                <p><strong>Peso:</strong> ${data.weight}</p>
+                <img src="${data.sprites.front_default}" alt="${data.name}">
+            `;
+
+            pokemonDiv.appendChild(card);
+        })
+        .catch(error => {
+            console.error("❌ Error al conectar con la API:", error);
+        });
+</script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pokemones</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        #pokemon {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            width: 180px;
+            text-align: center;
+        }
+
+        .card h3 {
+            margin: 0 0 10px;
+            color: #007acc;
+            text-transform: capitalize;
+        }
+
+        .card p {
+            margin: 5px 0;
+        }
+
+        .card img {
+            width: 96px;
+            height: 96px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Pokemones</h1>
+    <div id="pokemon"></div>
+
+    <script>
+        // URL para obtener los primeros 10 pokemones con nombre y URL de detalles
+        const API_URL = 'https://pokeapi.co/api/v2/pokemon?limit=100';
+
+        // Función para crear la card de un Pokémon
+        function crearCard(pokemon) {
+            const div = document.createElement('div');
+            div.classList.add('card');
+            div.innerHTML = `
+                <h3>${pokemon.name}</h3>
+                <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
+                <p><strong>Altura:</strong> ${pokemon.height}</p>
+                <p><strong>Peso:</strong> ${pokemon.weight}</p>
+                <P><strong>Habilidades:</strong> ${pokemon.abilities.ability}</p>
+            `;
+            return div;
+        }
+
+        fetch(API_URL)
+            .then(response => response.json())
+            .then(data => {
+                const contenedor = document.getElementById('pokemon');
+
+                // data.results es un array con {name, url} de cada Pokémon
+                // Hacemos fetch para cada URL para obtener detalles completos
+                const detallesPromises = data.results.map(poke =>
+                    fetch(poke.url).then(res => res.json())
+                );
+
+                // Esperamos a que terminen todos los fetch
+                Promise.all(detallesPromises)
+                    .then(pokemonesDetalles => {
+                        pokemonesDetalles.forEach(pokemon => {
+                            const card = crearCard(pokemon);
+                            contenedor.appendChild(card);
+                        });
+                    })
+                    .catch(err => console.error('Error cargando detalles:', err));
+            })
+            .catch(error => console.error('Error cargando la lista:', error));
+    </script>
+</body>
+
+</html>
