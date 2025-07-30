@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+
+        #comprarBtn {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        #comprarBtn:disabled {
+            background-color: grey;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🎟 Venta de Entradas</h1>
+    <p id="disponibles">Entradas disponibles: 10</p>
+    <button id="comprarBtn">Comprar entrada</button>
+    <p id="agotado" style="display: none; color: red; font-weight:bold;">¡Entradas agotadas!</p>
+    <script>
+        let entradas = 10;
+        const btn = document.getElementById("comprarBtn");
+        const contador = document.getElementById("disponibles");
+        const mensaje = document.getElementById("agotado");
+        btn.addEventListener("click", () => {
+            if (entradas > 0) {
+                entradas--;
+                contador.textContent = "Entradas disponibles: " + entradas;
+                if (entradas === 0) {
+                    btn.disabled = true;
+                    mensaje.style.display = "block";
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
