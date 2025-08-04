@@ -36,7 +36,8 @@ class MapaTipos extends Map {
             for(let [clave,valor] of valores){
 
                 if(typeof clave!==tipo_clave || typeof valor!==tipo_valor){
-                    document.write(`No se corresponden los tipos de ${clave}, ${valor}`);
+                    throw new TypeError("Error en los tipos");
+                    //ESto sirve para lanzar un error
                 }
 
             }
