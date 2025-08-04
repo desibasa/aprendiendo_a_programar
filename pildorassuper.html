@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+
+class Animal {
+
+    constructor(ojos,patas){
+
+        this.ojos=ojos;
+        //Este this hace referencia a la clase, esto quiere ecir que ojos hace referencia al parametro ojos
+        //Todo lo que sea ojos se almacenara en el this.ojos, no en ojos como tal
+        this.patas=patas;
+
+    }
+
+    //ESta clase animal va a tener dos metodos que son los siguientes:
+    come(alimento){
+        return "El animal come " + aimento;
+    }
+    caracteristicas(){
+        return "El animal introducido tiene " + this.ojos + "ojos y " + this.patas + " patas";
+    }
+
+}
+
+class Perro extends Animal {
+    //Esta clase perro heredara todas las caracteristicas de animal gracias a la plabara extends
+
+    constructor(ojos, patas, hocico){
+
+        super();
+        //CON SUPER LLAMAMOS AL CONSTRUCTOR DE LA CLASE PADRE
+        //Entonces ejecutara el this.ojos y el this.patas
+
+        this.hocico=hocico;
+    }
+
+    come(alimento){
+
+        super.come("Carne");
+        //Aqui el super esta fuera del constructor, esta en un metodo individual que nosotros hemos creado por lo tanto tenemos que
+        //utilizar el punto para especificar que propiedad o metodo vamos a utilizar
+
+    }
+
+}
+
+tobi=new Perro(2,4,"chato");
+//Queremos que estos datos se almacenen en los campos de clase de this.ojos y this.patas
+//Para ello pasaremos los ojos y las patas a los parametros de super para que pase los parametros al constructor padre a los parametros de ojos y patas NO A LOS THIS
+//chato viajara al constructor perro al this.hocico
+
+
+</script>
+
+</body>
+</html>

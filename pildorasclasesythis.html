@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        class ManejoArray extends array{
+            //Aqui estamos heredando de una clase predefinida que se llama array
+            //Vamos a utilizar un metodo propio de la clase array ( de la de arriba, que es una clase no un array como tal)
+
+            get primero(){
+            //Aqui lo que estamos haciendo es llamar a un metodo que se llama primero
+            //lo que queremos es que nos devuelva un metodo que lo que va a hacer ese metodo es devolvernos el rpimer elemento del array
+                return this[0];
+                //Aqui lo que le decimos es devuelve esto que esta en la posicion 0
+                //SIEMPRE QUE HAYA UN THIS DENTRO DE UNA CLASE ESTE HACE REFERENCIA A LA PROPIA CLASE EN SI, ES DECIR EN ESTE CASO A MANEJOARRAY
+
+            }
+
+            get ultimo(){
+                return this[this.length-1];
+            }
+        }
+
+        //Variable objeto de tipo manejo array, es decir, una instancia de esta clase
+
+        let array1=new ManejoArray();
+        //Lo habitual esque cuando se cree una clase vaya con un constructor pero en este caso no 
+        //Al no haber se crea un constructor vacio invisible
+        //Este array 1 puede utilizar los metodos tanto del padre que es manejoarray como la del abuelo que es array
+
+        array1.push("Antonio","Maria","Jose","Sandra");
+        //Si no tuviesemos herencia no podriamos utilizar el metodo push
+
+        document.write(array1.primero);
+        document.write(array1.ultimo);
+
+    </script>
+    
+</body>
+</html>
