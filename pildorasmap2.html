@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+//La clase Map lo que hace es almacenar datos como en un array pero en formato clave valor
+//En vez de usar los indices de 0, 1, 2.... utiliza palabras y es mucho mas intuitivo
+//Aqui para generar una clave y su valor usariamos el set y el get para obtener el valor
+
+let datos=new Map();
+
+datos.set("dni", 15534659);
+
+datos.set("nombre", "juan");
+
+datos.set("apellido", "fernandez");
+
+datos.set("edad", 27);
+
+document.write(datos.get("nombre"));
+
+//AQUI DE MANERA MAS COMPLEJA
+
+class MapaTipos extends Map {
+//Aqui tenemos todas las clases y metodos de la clase map ¿porque lo usamos? porque necesitamos los metodos get y set
+
+    constructor(tipo_clave,tipo_valor,valores){
+//Queremos que solo se puedan introducir strings, incluso para edad para ello se lo especificariamos en los parametros del constructor
+
+        if(valores){
+
+            for(let [clave,valor] of valores){
+
+                if(typeof clave!==tipo_clave || typeof valor!==tipo_valor){
+                    document.write(`No se corresponden los tipos de ${clave}, ${valor}`);
+                }
+
+            }
+
+        }
+        super(valores);
+        //Este super esta llamando al constructor de la clase padre, en este caso al constructor de map
+
+
+    }
+
+
+}
+
+let mis_datos=[["name", "desi"], ["lastname", "basa"], ["age", 32]];
+
+let data = new MapaTipos("string", "string", mis_datos);
+//Aqui le estamos diciendo que la clave y el valor tienen que ser string
+
+document.write(data.get("age"));
+
+
+</script>
+</body>
+</html>
