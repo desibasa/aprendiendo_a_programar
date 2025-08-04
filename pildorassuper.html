@@ -22,7 +22,7 @@ class Animal {
 
     //ESta clase animal va a tener dos metodos que son los siguientes:
     come(alimento){
-        return "El animal come " + aimento;
+        return "El animal come " + alimento;
     }
     caracteristicas(){
         return "El animal introducido tiene " + this.ojos + "ojos y " + this.patas + " patas";
@@ -35,7 +35,7 @@ class Perro extends Animal {
 
     constructor(ojos, patas, hocico){
 
-        super();
+        super(ojos,patas);
         //CON SUPER LLAMAMOS AL CONSTRUCTOR DE LA CLASE PADRE
         //Entonces ejecutara el this.ojos y el this.patas
 
@@ -44,9 +44,17 @@ class Perro extends Animal {
 
     come(alimento){
 
-        super.come("Carne");
+        return super.come("Carne");
         //Aqui el super esta fuera del constructor, esta en un metodo individual que nosotros hemos creado por lo tanto tenemos que
         //utilizar el punto para especificar que propiedad o metodo vamos a utilizar
+        //Tambien tenemos que tulizar return para que nos devuelva los datos si no no lo hara
+
+    }
+
+    caracteristicas(){
+        //ESte metodo es diferente al de arriba ya que este esta hecho para que devuelva el parametro hocico, que el otro metodo no tiene
+
+        return super.caracteristicas() + " " + this.hocico;
 
     }
 
@@ -56,7 +64,7 @@ tobi=new Perro(2,4,"chato");
 //Queremos que estos datos se almacenen en los campos de clase de this.ojos y this.patas
 //Para ello pasaremos los ojos y las patas a los parametros de super para que pase los parametros al constructor padre a los parametros de ojos y patas NO A LOS THIS
 //chato viajara al constructor perro al this.hocico
-
+document.write(tobi.caracteristicas());
 
 </script>
 
