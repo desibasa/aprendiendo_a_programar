@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+class vehiculo {
+
+    constructor(modelo,marca,precio,km){
+
+        this._modelo=modelo;
+        this._marca=marca;
+        this._precio=precio;
+        this._km=km;
+        
+    }
+
+    get modelo(){
+        return this._modelo;
+    }
+    set modelo(value){
+        this._modelo=value;
+    }
+    get marca(){
+        return this._marca;
+    }
+    set marca(value){
+        this._marca=value;
+    }
+    get precio(){
+        return this._precio;
+    }
+    set precio(value){
+        this._precio=value;
+    }
+    get km(){
+        return this._km;
+    }
+    set km(value){
+        this._km=km;
+    }
+
+    mostrar_coche(){
+        document.write(this._modelo + " " + this._marca + " " + this._precio + " "+ this._km);
+    }
+
+}
+
+let coche = new vehiculo ("Seat", "Ibiza", 2000, 300.000);
+
+coche.mostrar_coche();
+    
+</script>
+</body>
+</html>
