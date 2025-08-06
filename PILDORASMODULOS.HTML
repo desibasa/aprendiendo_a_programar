@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<div id="contenedor"></div>
+
+<script type="module">
+//Para utilizar modulos, es decir componentes reutilizables usaremos el type="module"
+//Ademas para poder utilizarlo tenemos que poner la palabra export en el archivo donde esten nuestros modulos, en este caso en modulos.js
+//Tambien tenemos que usar en el archivo donde queramos invocar esos modulos la palabra import y entre corchetes el comoponente que queramos utilizar
+//en este caso el nombre de la funcion que es iva.
+//Por ultimo añadiremos la palabra from para linkar el archivo donde esta esa funcion, el archivo ira entre comillas
+//IMPORTANTE HAY QUE PONER SIEMPRE ./ PARA QUE FUNCIONE, AUNQUE ESTE EN LA MISMA RUTA
+//OJO TAMPOCO SE PUEDE CARGAR DE MANERA LOCAL, HAY QUE EJECUTARLO CON EL LIVE SERVER PARA QUE FUNCIONE
+//en este caso vamos a meterlo en un div para poder verlo ya que podemos usar el dom
+import{iva} from "./modulos.js";
+
+let coste = 15000;
+
+let calculo_iva = iva(coste);
+
+// console.log(coste+calculo_iva);
+
+let contenedor = document.getElementById("contenedor");
+
+contenedor.innerHTML = coste + calculo_iva;
+//InnerHTML es para cambiar el dom en este caso queremos imprimir el coste + el iva
+
+</script>
+
+
+</body>
+</html>
