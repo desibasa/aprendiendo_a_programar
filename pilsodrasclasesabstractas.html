@@ -9,13 +9,21 @@
 <script>
 
 class persona {  //Esto es una clase que puede tener objetos, metodos, variables etc dentro de ella
+//Las clases abstractas NO SE PUEDEN INSTANCIAR es decir no podemos hacer un new persona por eso vamos a crar un constructor para que en caso de intentar hacerlo nos mande un error
+    constructor(){
+        if(this.constructor===persona){
+            throw new Error("Error no puedes crear una instancia de persona");
+        }
+    }
+//Como todas las clases tienen un constructor por defecto aunque no se vea, al invocar a esta clase abstracta saltara el constructor y por lo tanto lanzara el error
+
 
     habla(){    //Esto es un metodo dentro de una clase, un metodo es una funcion, es decir es igual a function habla
 
         //Todas las clases abstractas (es decir la clase mas basica de todas, la primera que se implementa)
         //tienen que tener un metodo abstracto, qu un metodo abstracto es un metodo o funcion como quieras llamarlo
         //vacio pero inicializado
-
+        
         throw new Error("Este es un metodo abstracto y se debe de sobreescribir en las siguientes clases");   //Si llamamos directamente a este metodo dara error
 
     }
