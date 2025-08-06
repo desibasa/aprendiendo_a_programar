@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+class persona {  //Esto es una clase que puede tener objetos, metodos, variables etc dentro de ella
+
+    habla(){    //Esto es un metodo dentro de una clase, un metodo es una funcion, es decir es igual a function habla
+
+        //Todas las clases abstractas (es decir la clase mas basica de todas, la primera que se implementa)
+        //tienen que tener un metodo abstracto, qu un metodo abstracto es un metodo o funcion como quieras llamarlo
+        //vacio pero inicializado
+
+        throw new Error("Este es un metodo abstracto y se debe de sobreescribir en las siguientes clases");   //Si llamamos directamente a este metodo dara error
+
+    }
+
+}
+
+class empleado extends persona {    //Esta clase ya no es abstracta porque es secundaria de persona y heredara el metodo habla de persona
+
+    habla(){
+        return "El empleado habla español";
+    }
+
+}
+
+empleado1 = new empleado();     //Aqui creamos el primer objeto empleado que tendra el metodo habla de la clase abstracta persona
+
+document.write(empleado1.habla());
+
+
+
+</script>
+</body>
+</html>
