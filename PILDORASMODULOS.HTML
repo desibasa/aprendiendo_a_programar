@@ -9,6 +9,19 @@
 
 <div id="contenedor"></div>
 
+<input type="text" id="origen"><br/><br/>
+
+<button id="conversor">Calcular</button><br/><br/>
+
+<p>IVA: </p><br/><br/>
+<div id="espacioiva"></div>
+
+<p>IRPF: </p><br/><br/>
+<div id="espacioirpf"></div>
+
+<p>TOTAL: </p><br/><br/>
+<div id="espaciototal"></div>
+
 <script type="module">
 //Para utilizar modulos, es decir componentes reutilizables usaremos el type="module"
 //Ademas para poder utilizarlo tenemos que poner la palabra export en el archivo donde esten nuestros modulos, en este caso en modulos.js
@@ -18,18 +31,50 @@
 //IMPORTANTE HAY QUE PONER SIEMPRE ./ PARA QUE FUNCIONE, AUNQUE ESTE EN LA MISMA RUTA
 //OJO TAMPOCO SE PUEDE CARGAR DE MANERA LOCAL, HAY QUE EJECUTARLO CON EL LIVE SERVER PARA QUE FUNCIONE
 //en este caso vamos a meterlo en un div para poder verlo ya que podemos usar el dom
-import{iva} from "./modulos.js";
 
-let coste = 15000;
+    // import{iva, irpf, calculo_total} from "./modulos.js"; ESTO SIRVE PARA IR IMPORTANDO DE UNA EN UNA
 
-let calculo_iva = iva(coste);
+    import * as mis_funciones from "./modulos.js";
+    //Para importar todo hay que poner el simbolito de todos de SQL y as para darle un alias, en este caso el alias es mis_funciones. ESte alias puede ser cualquier nombre que queramos
+    //A la hora de utilizar el alias es importante usarlo en las funciones que queramos invocarlo, por eso aparece en las funciones de mas abajo
 
-// console.log(coste+calculo_iva);
+    let origen = document.getElementById("origen");
 
-let contenedor = document.getElementById("contenedor");
+    let boton = document.getElementById("conversor"); //Estas dos variables estan guardado objetos del DOM
 
-contenedor.innerHTML = coste + calculo_iva;
-//InnerHTML es para cambiar el dom en este caso queremos imprimir el coste + el iva
+    boton.addEventListener("click", ()=> {
+
+        // contenedor.innerHTML = parseInt(origen.value)+iva(origen.value); ESTE ES EL ORIGINAL, SOLO CON EL IVA
+
+        contenedoriva.innerHTML=mis_funciones.iva(origen.value);
+
+        contenedorirpf.innerHTML=mis_funciones.irpf(origen.value);  //RECORDAR QUE MIS_FUNCIONES ES EL NOMBRE DEL ALIAS PARA PODER INVOCAR A LAS FUNCIONES QUE TENEMOS EN EL ARCHIVO EXTERNO, SI FUESE DE UNA EN UNA NO HARIA FALTA PONER MIS_FUNCIONES.
+        
+        contenedortotal.innerHTML=mis_funciones.calculo_total(origen.value);
+
+        //Aqui llamamos a la variable origen pero en esta variable lo que hay guardado es un objeto, no el valor, por eso tenemos que especificar que queremos el valor del objeto con .value
+        //Ademas al ser ub ojeto la cantidad se guarda como string, por eso utilizamos el parseint para que lo pase a entero
+        //InnerHTML es para inyectar en el DOM, es decir, inserta algo en el HTML, en este caso donde es inyectado es en contenedor. Pero para eso lo tenemos que tener almacenado como variable, que esta mas abajo.
+
+    });
+
+    //addeventlistener hace que ponga un elemento a la escucha de un evento, normalmente es el usuario quien la ejecuta. Como el boton puede hacer muchas cosas, le tenemos que decir que es lo que queremos que haga
+    //especificamente. En este caso sera hacer un click ¿y que es lo que tiene que hacer este boton? pues eso se especifica en el segundo parametro. Suelen ser funciones, es decir nosotros programamos la funcion en
+    //otro punto del codigo y el evento la ira a buscar, en este caso vamos a hacer algo diferente. No vamos a hacer la funcion en otro lado para llamarla, si no que vamos a construir una funcion anonima que se 
+    //hace con ()=> {aqui programamos la funcion} es decir, hacemos 2 pasos en 1, hacemos la llamada y ademas creamos la funcion
+
+    // console.log(coste+calculo_iva);
+
+    let contenedoriva = document.getElementById("espacioiva");
+
+    let contenedorirpf = document.getElementById("espacioirpf");
+
+    let contenedortotal = document.getElementById("espaciototal");
+
+    
+
+
+
 
 </script>
 
