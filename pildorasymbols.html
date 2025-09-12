@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //Los symbols sirven para encapsular propiedades de objetos y hacerlas invisibles fuera de los objetos para que las propiedades ni se puedan ver ni modificar
+        //Los simbolos tienen que ser unicos, NO pueden exisitir dos iguales. Para crear un symbol se haria muy parecido a una variable
+
+        let simbolo1 = Symbol("juan");
+        let simbolo2 = Symbol("juan");
+
+        console.log(simbolo1===simbolo2);   //Esto da false ya que no pueden ser iguales, por muchos signos === que pongamos y por mucho que pongamos valores iguales dentro de ellos
+
+        console.log(typeof simbolo1);   //Esto nos mostrara el tipo y nos dira symbol
+
+        //En el objeto de abajo podemos ver como la consola ha cambiado el nombre de juan a ana, para que esto no ocurra utilizaremos los symbols
+
+        const alumno = {
+
+            nombre : "juan",
+            apellido : "Diaz",
+            edad : 21
+
+        };
+
+        alumno.nombre="Ana";
+        
+        console.log(alumno);
+
+        //Aqui vamos a hacer que la propiedad nombre del objeto sea un symbol y no se pueda modificar, para ello tulizaremos los corchetes OJO LOS SYMBOLS SE TIENEN QUE DEFINIR 
+        // ANTES DE SER UTILIZADOS, si ponemos const nombre = Symbol(); despues de la creacion del objeto nos dara error
+
+        const nombre = Symbol();
+
+        const alumno2 = {
+
+            [nombre] : "sandra",
+            apellido : "lopez",
+            edad : 21
+
+        };
+
+        console.log(alumno2);
+
+        //Si quisieramos reescribir el nombre de sandra, lo que pasaria esque lo cogeria como si fuese una propiedad nueva, es decir hay 2 propiedades nombre,
+        //es decir una seria un symbol y la otra no ejemplo:
+
+        alumno2.nombre="Pepe";
+
+        console.log(alumno2);
+
+        //Tambien podemos guardar funciones
+
+        const estudia = Symbol();
+
+        const alumno3 = {
+
+            nombre : "roberto",
+            apellido : "ramirez",
+            edad : 21
+
+        };
+
+        alumno3[estudia] = function(){
+            console.log("El alumno estudia");
+        };
+
+        //Para poder ver la funcion tenemos que llamarla EXPLICITAMENTE por eso hasta que no lo hagamos no nos aparecera en consola
+
+        alumno3[estudia]();
+
+        //Si queremos ver que simbolos tenemos en un objeto lo hariamos con un metodo que pertenece a la clase object que es Object.getOwnPropertySymbols
+
+        console.log(Object.getOwnPropertySymbols(alumno3));
+
+    </script>
+</body>
+</html>
