@@ -26,4 +26,46 @@
     $nuevoNumero= $numero . 1;
     echo $nuevoNumero;
 
+    //Ademas php es gradual, donde podemos especificar los tipos de las variables, esto no puede aplicarse en cualquier sitio
+
+    //METODO VAR_DUMP
+
+    //El metodo var_dump te va a decir el tipo de dato de una variable impreso por pantalla ejemplo: 
+
+    var_dump($name);
+    var_dump($edad);
+    var_dump($verdadero);
+
+    //Tambien va a poner los errores impresos por pantalla por eso hay que tener cuidado de no imprimir los errores en una pagina web
+
+    //METODO GETTYPE
+
+    //El metodo gettype solo da el tipo de dato que tenemos en una variable y en este metodo tenemos que usar el echo antes para que lo imprima ejemplo: 
+
+    echo gettype($name);
+
+    //Tambien podemos preguntar directamente si una variable es de un tipo en concreto con is_ seguido del tipo ejemplo:
+
+    echo is_string($name); //Esto dara true y por lo tanto imrpimira 1
+    echo is_int($name);    //Esto dara false y por lo tanto no imprimira nada, estara vacio
+    echo is_bool($name);   //Esto dara false y por lo tanto no imprimira nada, estara vacio
+
+    //TYPECASTING
+
+    //Si quiseramos transformar variables de un tipo en otro lo hariamos con esto ejemplo: 
+
+    echo "<br>";  //Para hacer saltos de linea uamos el br asi
+    
+    $nuevoNumero = (bool) 44;
+    echo $nuevoNumero; //Esto devolvera 1 porque es un booleano de tipo true, si fuese 0 daria false
+
+    echo "<br>";
+
+    //Otra forma de concatenar es con el punto y el = y quedaria asi:
+
+    $output = "Hola $name";
+    $output .= ", tienes $edad años";
+    echo $output;
+
+    //El punto y coma es IMPORTANTISIMO a la hora de compilar porque elimina todos los saltos de linea, si no lee punto y coma se le hira la pinza
 ?>
