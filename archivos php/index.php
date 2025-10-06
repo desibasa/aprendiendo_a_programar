@@ -20,6 +20,10 @@
 
     $numero = 30 + "1";
     echo $numero; //Esto va a dar 31 porque va a transformar el string a numero
-    echo "holamundo2"; //Prueba
+
+    //Si quisieramos pasar a texto los numeros lo hariamos de la siguiente forma, ya que el + no concatena como en js
+
+    $nuevoNumero= $numero . 1;
+    echo $nuevoNumero;
 
 ?>
