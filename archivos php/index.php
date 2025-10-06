@@ -20,5 +20,6 @@
 
     $numero = 30 + "1";
     echo $numero; //Esto va a dar 31 porque va a transformar el string a numero
+    echo "holamundo2"; //Prueba
 
 ?>
