@@ -68,4 +68,22 @@
     echo $output;
 
     //El punto y coma es IMPORTANTISIMO a la hora de compilar porque elimina todos los saltos de linea, si no lee punto y coma se le hira la pinza
+    //Existen dos tipos de constantes, las globales que las podemos utilizar en cualquier parte del codigo y las locales 
+    //En las globales no se usa el simbolo del dolar y NO SE PUEDEN SOBREESCRIBIR y no funcionan en tiempo de ejecucion, es decir no se pueden usar en bucles porque estan en tiempo
+    //de ejecucion, es decir son estaticas
+
+    const NOMBRE = "Sara";
+    echo "<br>";
+
+    //BUCLE IF
+
+    if ($edad > 18){
+        echo "<h2>Eres viejo</h2>";
+    }
+    else{
+        echo "<h2>Eres joven</h2>";
+    }
+
+    //min 46
+
 ?>
