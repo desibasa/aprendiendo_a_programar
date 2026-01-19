@@ -66,8 +66,17 @@ body{
         color: #FFB915;
         font-size: 30px;
         text-decoration: none;
+        list-style: none;
     }
     .lista_responsive{
         display: none;
+        list-style: none;
+        /*ARREGLO DEL MENU DESPLEGABLE PARA QUE NO EMPUJE AL RESTO, PONERLO EN ABSOLUTE*/
+        position: absolute;
+    }
+    .menu_contenedor {
+    /*Esto lo que hace es que el menu desplegable no empuje a todo el nav, esto se complemeta con position absolute de .lista_responsive */
+        position: relative;
+        margin-left: 500px;
     }
 }
