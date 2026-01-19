@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //CONSTRUIR ARRAYS A PARTIR DE UN CONSTRUCTOR (el constructor es un metodo)
+
+        let numero=new Array();
+
+        let letras=new Array(5); //Esto especifica cuantos elementos va a tener el array en su interior
+
+        let paises=new Array("España", "Mexico", "Francia");
+
+
+        //ALMACENAR UN UNICO VALOR EN ESPECIFICO EN UN ARRAY (queremnos guardar el numero 15)
+
+        let error=new Array(15); //Esto no almacena el numero 15, si no que almacena 15 espacios vacios en el array
+
+        //Para construir esto correctamente usaremos el metodo of ejemplo:
+
+        let correcto=Array.of(15);
+
+        document.write(correcto);
+
+
+        //CREAR UN ARRAY A PARTIR DE UN ELEMENTO ITERABLE (es decir un elemento que se pueda recorrer con un bucle for)
+
+        let mas_paises=Array.from(paises);
+
+        document.write(mas_paises);
+
+        //Otro ejemplo
+
+        let palabra="sombrilla";
+
+        let palabara_en_array=Array.from(palabra);
+
+        document.write(palabara_en_array);
+
+
+        //ESTA FUNCION FROM PUEDE TENER UN PARAMETRO EN SU INTERIOR QUE LO QUE HACE ES 
+
+        function suma_numeros(valor){
+
+            return valor*2;
+
+        }
+
+        let array_numeros=new Array(5, 10, 15, 20, 25);
+
+        let nuevo_numero=Array.from(array_numeros, suma_numeros); //AQUI EL SEGUNDO PARAMETRO QUE ES LA FUNCION ESTO ES MUY IMPORTANTE
+        //YA QUE LO QUE HACE ES PASAR EL ARRAY_NUMEROS A LA FUNCION PARA QUE SE ALMACENEN EN EL PARAMETRO QUE EN ESTE CASO ES VALOR
+        //EL RESULTADO SE ALMACENARA EN NUEVO_NUMERO, TENIENDO ASI LOS VALORES DE 10 (porque la funcion hace 5*2) 20, 30 Y ASI SUCESIVAMENTE
+        //ES DECIR ESTO LO QUE HACE ES APLICAR UNA FUNCION YA CONSTRUIDA A UN ARRAY 
+
+        console.log(nuevo_numero);
+
+
+
+    </script>   
+</body>
+</html> 
