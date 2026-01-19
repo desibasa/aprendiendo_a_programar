@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //SETS
+        // los sets son una coleccion de valores como los arrays pero tienen una diferencia principal, que no estan ordenados (no tienen indices) ni indexados. 
+        // Lo bueno que tienen esque no permiten tener objetos duplicados. Son mas rapidos y eficientes que los arrays, permiten tener una gran cantidad de elemtnos en su interior.
+        //Para crearlo lo hariamos de la siguiente manera:
+
+        const nombre_del_set= new Set();
+
+        console.log(nombre_del_set);
+
+        const nombres = new Set();
+
+        //Para añadir elementos al set lo hariamos de la siguiente forma: 
+
+        nombres.add("Antonio");
+        nombres.add("Maria");
+        nombres.add("Juan");
+        nombres.add("Ana");
+        nombres.add("Maria");
+
+        console.log(nombres);
+        //Aqui podemos ver como el elemento duplicado Maria no aparece, y lo que sale en consola son 4 elementos, no 5. OJO si pusieramos una con mayuscula y otra sin mayuscula 
+        //como JS es case sensitive si que los tendria como elementos diferentes.
+
+        //El metodo Set tiene varias propiedades interesantes como Size que nos devolvera cuenatos elementos tiene un set
+        console.log(nombres.size);
+
+        //Para comprobar si un elemento se encuentra en un set lo hariamos con la propiedad has y dentro de los parentesis el elemento que queremos buscar.
+        //  Si devuelve true esque si que existe ese elemento.
+        console.log(nombres.has("Ana"));
+
+        //Para elminar elementos utilizamos la propiedad delete y entre parentesis el elemento que queremos eliminar.
+        nombres.delete("Ana");
+        console.log(nombres);
+
+        //Para recorrer todos los elementos dentro de un ser utilizariamos el bucle foreach. Dentro del foreach pondremos el nombre de una variable(el nombre puede ser lo que queramos)
+        //para que en cada vuelta de bucle se almacene ahi los elementos del set y se vayan eliminando.
+        nombres.forEach(todoslosnombres=>{
+            //aqui le diremos que queremos hacer en cada vuelta de bucle. Tenemos que utilizar el mismo nombre de la variable del bucle, si no no hara nada
+            console.log(todoslosnombres);
+        });
+        
+        //Para eliminar todo el contenido que hay dentro de un set utilizariamos la propiedad clear():
+        nombres.clear();
+        console.log(nombres);
+
+        //Este metodo set nos permite eliminar todos los objetos duplicados de un array
+
+        const nombres2 = ["Juan","Ana","Maria","Pepe","Lucia","Sara","Pepe","Antonio","Juan","Sandra"]; //EN ESTE ARRAY TENEMOS 2 ELEMENTOS REPETIDOS
+
+        const nombressinduplicar = new Set(nombres2); //AQUI ALMACENAMOS EL ARRAY DENTRO DEL SET PERO COMO EL SET NO PERMITE ELEMENTOS DUPLICADOS YA LO TENDRIAMOS.
+
+        console.log(nombressinduplicar);
+
+    </script>
+</body>
+</html>

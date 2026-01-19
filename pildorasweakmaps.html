@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //Los weakmap guardan de forma debil las claves y los valores de los maps. Forma debil es cuando al final del programa si no se han utilizado las claves y los valores, se borran
+        //debido al garbage collector, que es el recolector de basura, es el que se encarga de eliminar de la memoria estos datos que no han sido utilizados. las claves de estos
+        //weakmaps solo pueden ser arrays, objetos o funciones pero NO PRIMITIVOS. Solo tienen 4 metodos, get para obtener, set para insertar, has para preguntar si tiene
+        // algo en concreto y delete para eliminar. Las diferencias entre los map y los weakmap esque los weakmap tienen clvales que pueden ser solamente objetos, arrays y funciones
+        //Estos no son iterables, los map si, y se borran si no se usan, los maps se mantienen a lo largo del tiempo.
+
+        const empleado = {
+
+            empresa:"pildoras informaticas"
+
+        }
+
+        const almacen_empleados = new WeakMap();
+
+        almacen_empleados.set(empleado, "juan");    //RECORDAR QUE VAMOS A INSERTAR AQUI LA CLAVE QUE SOLO PUEDE SER OBJETO, ARRAY O FUNCION
+
+        //El console.log nos imprimira que la key es empresa:pildoras y el valor juan
+
+        console.log(almacen_empleados);
+
+        
+
+    </script>
+</body>
+</html>

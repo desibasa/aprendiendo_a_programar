@@ -6,3 +6,21 @@ export function iva(cantidad){
     return iva;
 
 }
+
+export function irpf(cantidad){
+
+    let irpf = cantidad*0.15;
+
+    return irpf
+
+}
+
+export function calculo_total (cantidad) {
+
+    let calculo_total=cantidad-irpf(cantidad)+iva(cantidad);
+
+    return calculo_total;
+
+}
+
+// RECORDAR QUE SI NO PONEMOS EL RETURN NO NOS VA A DEVOLVER NADA

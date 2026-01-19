@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="origen"><br/><br/>
+
+    <button id="conversor">Calcular</button><br/><br/>
+
+    <p>IVA: </p><br/><br/>
+    <div id="espacioiva"></div>
+
+    <p>IRPF: </p><br/><br/>
+    <div id="espacioirpf"></div>
+
+    <script type="module">
+
+        import * as mis_funciones from "./modulos2.js";
+
+        let origen = document.getElementById("origen");
+
+        let boton = document.getElementById("conversor"); //Estas dos variables estan guardado objetos del DOM
+
+        boton.addEventListener("click", ()=> {
+
+            //RECORDAR QUE TENEMOS QUE USAR EL ALIAS DEL IMPORT Y LUEGO EL ALIAS DEL ARCHIVO EXTERNO
+
+            contenedoriva.innerHTML=mis_funciones.iva(origen.value);
+
+            contenedorirpf.innerHTML=mis_funciones.irpf(origen.value);  
+
+        });
+
+        let contenedoriva = document.getElementById("espacioiva");
+
+        let contenedorirpf = document.getElementById("espacioirpf");
+
+    </script>
+
+</body>
+</html>

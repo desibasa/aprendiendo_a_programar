@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //Los maps son estructuras parecidos al array pero formadas por clave valor. Cada clave tiene un valor asociado y pueden ser de cuaqluier tipo por ejemplo nombre:"juan" 
+        //nombre seria la clave y el valor juan. Tambien son de alto rendimiento, mas que los arrays ademas de ser mas rapidos y eficientes que los objetos
+
+        const mapa = new Map; //asi se construiria.
+
+        const empleado = new Map();
+
+        //Asi se añadirian las clave valor a los maps, con los set añadiamos con add pero con los maps utilizamos set
+
+        empleado.set("nombre","Antonio");
+        empleado.set("salario",1500);
+        empleado.set("antiguedad",5);
+        empleado.set("activo",true);
+        empleado.set("comisiones",[1050,1200,1125]);  //Tambien podemos añadir arrays tanto a las claves, como a los valores, en este caso es a los valores
+
+        console.log(empleado);
+
+        //Map si que permite saber la longitud del mapa con size.
+        console.log(empleado.size);
+
+        //Si queremos saber si existe algo dentro de un mapa ya sea una clave o un valor utilizamos has, si devuelve true esque si que existe
+        console.log(empleado.has);
+
+        //Tambien podemos saber el valor que tiene una clave en concreto usando .get
+        console.log(empleado.get("salario"));
+
+        //Tambien podemos borrar el contenido de un mapa utilizando .clear, esto lo dejara vacio pero el map seguira existiendo.
+        empleado.clear();
+        console.log(empleado);
+
+        //Podemos usar new map para llamar al constructor de mapas y que nos cree un nuevo map pero tambien podemos hacerlo a mano utilizando un constructor con argumentos
+        //La clase map tiene dos constructores, el que viene por defecto no tiene argumentos pero algunas clases tienen mas constructores (sobrecarga de constructores)
+        // los cuales admiten en su interior ciertos parametros. Estos construcotres con parametros nos permiten hacer cosas variadas con los mapas, por ejemplo duplicarlos
+
+        empleado.set("nombre","Antonio");
+        empleado.set("salario",1500);
+        empleado.set("antiguedad",5);
+        empleado.set("activo",true);
+        empleado.set("comisiones",[1050,1200,1125]);
+
+        //Aqui vamos a duplicarlo para crear un empleado que sea muy parecido pero modificaremos por ejemplo el nombre y las comisiones
+
+        const empleado_duplicado = new Map(empleado);
+
+        //asi cambiariamos una clave valor del mapa duplicado
+
+        empleado_duplicado.set("nombre","ana");
+        console.log(empleado_duplicado);
+
+        //Para recorrer un mapa utilizariamos el foreach. En el for each creamos una funcion anonima(porque no tiene nombre) y en sus parametros la clave y el valor 
+        // para que vaya guardando los datos dentro de esos parametros, es decir, a la primera vuelta de bucle guardara en el primer parametro la clave y en el segundo el valor y asi
+        //sucesivamente en el resto de vueltas hasta que no quede ningun elemento y termine
+
+        empleado_duplicado.forEach(function(value,key){     
+
+            //OJO LOS FOREACH DE LOS MAP SIEMPRE COGEN PRIMERO LOS VALORES Y LUEGO LAS CLAVES, POR ESO ESTA INVERTIDO EN LOS PARAMETRO
+
+            document.write(key + " = " + value);
+            document.write("<br>");
+            document.write("<br>");
+
+        });
+
+        //Version simplificada del foreach
+
+        empleado_duplicado.forEach((valor,clave) => {
+
+            document.write(clave + " = " + valor);
+            document.write("<br>");
+            document.write("<br>");
+
+        });
+
+        //Version pero solo con los valores, ya que lo primero que imprime el foreach es el valor, no el indice ni la clave
+
+        empleado_duplicado.forEach(datos => {
+
+            document.write(datos);
+            document.write("<br>");
+
+        });
+        
+        document.write("<br>");
+
+        //Otra forma de recorrer un mapa es con el metodo entries(), que lo que hace es devolver un objeto que sea iterable y como los objetos siempre tienen una clave y un valor
+        //pues ya lo tiene predefinido de por si.
+
+        for(const datos of empleado_duplicado.entries()){
+
+            //Entries devolvera el objeto que es iterable, en este caso el objeto map con sus claves y valores y lo recorrera a cada vuelta de bucle hasta que no queden mas claves valor
+            //guardara las claves y los valores en el parametro datos
+
+            document.write(datos);
+            document.write("<br>");
+
+        }
+
+        document.write("<br>");
+
+        //Si quisieramos saber todas las claves que tiene un mapa lo hariamos con el metodo .keys
+
+        for(const datos of empleado_duplicado.keys()){
+
+            document.write(datos);
+            document.write("<br>");
+
+        }
+
+        document.write("<br>");
+
+        //Si quisieramos saber todos los valores que tiene el mapa lo hariamos con el metodo .values
+
+        for(const datos of empleado_duplicado.values()){
+
+            document.write(datos);
+            document.write("<br>");
+
+        }
+
+
+    </script>
+</body>
+</html>

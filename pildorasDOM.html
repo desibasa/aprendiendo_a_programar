@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accediendo al DOM</title>
+</head>
+<body>
+
+    <form name="datos personales">
+
+        <p id="parrafo"></p>
+        <p id="importantes"></p>
+
+    </form>
+
+    <script>
+
+        //Para acceder desde js a algo del dom (document objetc model) siempre tendremos que usar document. porque es la cuspide del DOM, es decir del documento
+        //podemos acceder a los elementos del DOM segun etiquetas, clases, ids....
+        //vamos a decir que todo lo que esta dentro de el head lo tenga la variable elemento
+        //Recordar que todos los objetos de javascript tienene propiedades(como son) y metodos (que es lo que hacen). Las propiedades siempre van a aparecer en el menu intellisense
+        //con un rectangulo en 3D azul y los metodos con un cuadrado en 3D morado. Por eso el body es una propiedad, porque dice como es
+
+        // let elemento;
+
+        // elemento=document.body;
+
+        // console.log(elemento);
+
+        //Si quisieramos acceder al atributo name del form tendremos que seguir una ruta, utilizariamos la propiedad forms que ya existe prehecha enjavascript y decirle a que form
+        //queremos acceder, en este caso como es el primero pondriamos la posicion 0 seguido del punto y del atributo en este caso .name
+
+        let elemento;
+
+        elemento=document.forms[0].name;
+
+        console.log(elemento);
+
+        let parrafo = document.getElementById("parrafo");  //Se guardaran como objetos
+
+        console.log(parrafo);
+
+        
+    </script>
+</body>
+</html>

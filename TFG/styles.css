@@ -1,0 +1,73 @@
+@font-face{
+    font-family: "Montserrat";
+    src: url(assets/fonts/Montserrat/static/Montserrat-Medium.ttf);
+}
+@font-face{
+    font-family: "bebasneue";
+    src: url(assets/fonts/Bebas_Neue/BebasNeue-Regular.ttf);
+}
+@font-face{
+    font-family: "Bebas Neue";
+    src: url(assets/fonts/Outfit/static/Outfit-Regular.ttf);
+}
+body{
+    background: linear-gradient(#003F66,#002A45,#011B2F);
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+.navegador{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.lista{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+    justify-content: space-between;
+}
+
+/* Este selector permite seleccionar todos los elementos del tipo "a" dentro de esta lista sin importar cuantos elementos haya en el medio, por eso no pongo li en medio */
+.lista a {  
+    font-family: "bebasneue";
+    color: #FFB915;
+    font-size: 30px;
+    text-decoration: none;
+}
+.hamburguesa{
+    display: none;
+    flex-direction: column;
+    background-color: transparent;
+    border: none;
+}
+
+@media(max-width: 1024px){
+    .hamburguesa{
+        display: flex;
+    }
+    .treslineas{
+        width:50px;
+    }
+    .equis{
+        display: none;
+        width:35px; 
+        margin-left: 7px;
+    }
+    .lista{
+        display: none;
+    }
+    .lista_responsive a{
+        font-family: "bebasneue";
+        color: #FFB915;
+        font-size: 30px;
+        text-decoration: none;
+    }
+    .lista_responsive{
+        display: none;
+    }
+}

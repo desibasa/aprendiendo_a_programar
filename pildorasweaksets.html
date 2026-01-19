@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        //Los weakset son una coleccion de objetos, que es la principal diferencia con los sets, es decir, unicamente puede almacenar objetos. Esta estructura sigue siendo mas eficiente
+        //que los arrays. No tienen la propiedad size, no es iterable y sus objetos desaparecen de la memoria si no se utilizan. Solo tiene tres metodos, add, delete y has.
+
+        const miweakset = new WeakSet();
+
+        const empleado1 = {
+
+            nombre:"juan",
+            salario: 3500,
+            antiguedad: 5
+
+        }
+
+        const empleado2 = {
+
+            nombre:"maria",
+            salario: 4500,
+            antiguedad: 3
+
+        }
+
+        miweakset.add(empleado1);
+        miweakset.add(empleado2);
+
+        console.log(miweakset);
+        //Este console imprimira los elementos de forma aleatoria ya que los weakset no tienen un indice
+
+        //Esto de aqui abajo NO SE AÑADIRA Y DARA ERROR ya que es una variable y no permite almacenar cosas que no sean objetos.
+        // const nombre = "antonio";
+        // miweakset.add(nombre);
+
+        const coche = {
+
+            marca: "seat",
+            potencia: 110,
+            antiguedad: 10
+
+        }
+
+        miweakset.add(coche);
+
+        //Esto si que nos lo permite añadir al weakset porque aunque no tenga nada que ver, sigue siendo un objeto, que si no se utiliza se borrara al final del programa.
+
+        console.log(miweakset.has(empleado2));
+
+        miweakset.delete(empleado1);
+
+        console.log(miweakset);
+
+    </script>
+</body>
+</html>
